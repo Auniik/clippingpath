@@ -552,7 +552,7 @@
   
   .main-menu li a {
 	  display: block;
-	  padding: 14px 17px 8px;
+	  padding: 14px 14px 8px;
 	  text-decoration: none;
 	  font-size: 13px;
 	  color: #404040;
@@ -1293,10 +1293,18 @@
 	  border: 1px solid #c7c7c7;
 	  border-radius: 50%;
 	  width: 119px;
-	  height: 119px;
+	  /* height: 119px; */
 	  overflow: hidden;
-	  margin-top: -75px;
+	  /* margin-top: -75px; */
 	  background: #fff;
+  }
+  .owl-carousel .owl-item img  {
+	  width: 50%;
+    margin: 0 auto;
+  }
+  .item.col-md-8.box{
+	  min-height: 350px;
+	  min-width: 245px;
   }
   
   .c-p-tesimonials img:hover {
@@ -3276,9 +3284,11 @@
   } 
   .lavaLamp li a {
 	  position: relative;
+	  /*border-radius:0px 0px 5px 5px;*/
   }
   .lavaLamp li a:hover {
 	background:#eeeeee;
+	border-radius:0px 0px 5px 5px;
 }
 	.lavaLamp li a:active {
 		background:#eeeeee;
@@ -3372,7 +3382,7 @@
   }
   
   .footer-area .col-md-3.box {
-	  width: 210px;
+	width: 245px;
   }
   
   .footer-area .col-md-6.box {
@@ -4348,7 +4358,7 @@
 		  height: 390px;
 	  }
 	  .main-menu li a {
-		  padding: 17px 13px 5px;
+		  padding: 14px 6px 5px;;
 	  }
 	  .p-single-item {
 		  height: 217px;
