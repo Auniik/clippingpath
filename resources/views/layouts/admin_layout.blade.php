@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('backend/css/main.css')}}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 </head>
 <body class="app sidebar-mini rtl">
 <!-- Navbar-->
@@ -54,8 +55,23 @@
         </div>
     </div>
     <ul class="app-menu">
+        <li><a class="app-menu__item" href="{{url('/')}}" target="_blank"><i class="app-menu__icon fa fa-external-link"></i><span class="app-menu__label">Visit Site</span></a></li>
         <li><a class="app-menu__item" href=""><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-              <li><a class="app-menu__item" href="{{url('/')}}"><i class="app-menu__icon fa fa-external-link"></i><span class="app-menu__label">Visit Site</span></a></li>
+        <li><a class="app-menu__item {{ $url  == 'settings' ? 'active' : '' }}" href="{{url('settings')}}" href="{{url('settings')}}"><i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Site Configuration</span></a></li>
+
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info"></i><span class="app-menu__label">Features</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'features/create' ? 'active' : '' }}" href="{{url('features/create')}}"><i class="icon fa fa-circle-o"></i> Add Feature</a></li>
+                <li><a class="treeview-item {{ $url  == 'features' ? 'active' : '' }}" href="{{url('features')}}"><i class="icon fa fa-circle-o"></i> Manage Feature</a></li>
+            </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-newspaper-o
+"></i><span class="app-menu__label">Blogs</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'blogs/create' ? 'active' : '' }}" href="{{url('blogs/create')}}"><i class="icon fa fa-circle-o"></i> Add Blog</a></li>
+                <li><a class="treeview-item {{ $url  == 'blogs' ? 'active' : '' }}" href="{{url('blogs')}}"><i class="icon fa fa-circle-o"></i> Manage Blogs</a></li>
+            </ul>
+        </li>
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">User Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
@@ -92,6 +108,41 @@
     @method('DELETE')
     @csrf
 </form>
+
+
+{{--SUMMERNOTE--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $('#summernote').summernote({
+        height: 200,
+        styleWithSpan: false,
+        toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol']],
+            ['table', ['table']],
+            ['view', ['codeview']],
+        ],
+        popover: {
+            image: [],
+            link: [],
+            air: []
+        },
+        callbacks: {
+            // callback for pasting text only (no formatting)
+            onPaste: function (e) {
+                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                e.preventDefault();
+                bufferText = bufferText.replace(/\r?\n/g, '<br>');
+                document.execCommand('insertHtml', false, bufferText);
+            }
+        }
+    });
+
+</script>
 
 </body>
 </html>

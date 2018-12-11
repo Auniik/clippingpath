@@ -31,7 +31,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Name</label>
-                            <input name="name" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="Enter full name" value="{{old('name')}}">
+                            <input name="name" class="form-control @if($errors->has('name')) is-invalid @endif" value="{{old('name')}}" type="text" placeholder="Enter full name" >
                             @if($errors->has('name'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('name')}}
