@@ -1,14 +1,14 @@
 @extends('layouts.admin_layout')
-@section('title', 'Edit Contact page Information')
+@section('title', 'Add Contact page Information')
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-info"></i> Edit Contact</h1>
-            <p>Edit some contact details for your website</p>
+            <h1><i class="fa fa-gear"></i> Contact Page Configurations</h1>
+            <p>Add some contact details for your website</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('contacts/update')}}">Edit Contact</a></li>
+            <li class="breadcrumb-item"><a href="{{url('messages')}}"> Messages</a></li>
         </ul>
     </div>
 
@@ -23,16 +23,15 @@
     ?>
 
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Add Contact Info</h3>
-                <div class="tile-body">
-                    <form action="{{url('features')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        {{--Address One--}}
+                <form class="row" action="{{url('contact/update')}}" method="post">
+                    @csrf
+                    <div class="col-lg-4">
+                        <h3>Office Location 1</h3>
                         <div class="form-group">
                             <label class="control-label">Location 1</label>
-                            <input name="location_one" class="form-control @if($errors->has('location_one')) is-invalid @endif" value="{{old('location_one')}}" type="text" placeholder="Enter Country/Branch name" >
+                            <input name="location_one" class="form-control @if($errors->has('location_one')) is-invalid @endif" value="{{$contactRecord->location_one}}" type="text" placeholder="Enter Country/Branch name" >
                             @if($errors->has('location_one'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('location_one')}}
@@ -41,19 +40,20 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Address 1</label>
-                            <textarea name="address_one" rows="3" class="form-control @if($errors->has('address_one')) is-invalid @endif" placeholder="Enter address details">{{old('address_one')}}</textarea>
+                            <textarea name="address_one" rows="3" class="form-control @if($errors->has('address_one')) is-invalid @endif" placeholder="Enter address details">{{$contactRecord->address_one}}</textarea>
                             @if($errors->has('address_one'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('address_one')}}
                                 </div>
                             @endif
                         </div>
+                    </div>
 
-                        <hr>
-                        {{--Address Two--}}
+                    <div class="col-lg-4">
+                        <h3>Office Location 2</h3>
                         <div class="form-group">
                             <label class="control-label">Location 2</label>
-                            <input name="location_two" class="form-control @if($errors->has('location_two')) is-invalid @endif" value="{{old('location_two')}}" type="text" placeholder="Enter Country/Branch name" >
+                            <input name="location_two" class="form-control @if($errors->has('location_two')) is-invalid @endif" value="{{$contactRecord->location_two}}" type="text" placeholder="Enter Country/Branch name" >
                             @if($errors->has('location_two'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('location_two')}}
@@ -62,18 +62,20 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Address 2</label>
-                            <textarea name="address_two" rows="3" class="form-control @if($errors->has('address_two')) is-invalid @endif" placeholder="Enter address details">{{old('address_two')}}</textarea>
+                            <textarea name="address_two" rows="3" class="form-control @if($errors->has('address_two')) is-invalid @endif" placeholder="Enter address details">{{$contactRecord->address_two}}</textarea>
                             @if($errors->has('address_two'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('address_two')}}
                                 </div>
                             @endif
                         </div>
+                    </div>
 
-                        <hr>
+                    <div class="col-lg-4">
+                        <h3>Office Location 3</h3>
                         <div class="form-group">
                             <label class="control-label">Location 3</label>
-                            <input name="location_three" class="form-control @if($errors->has('location_three')) is-invalid @endif" value="{{old('location_three')}}" type="text" placeholder="Enter Country/Branch name" >
+                            <input name="location_three" class="form-control @if($errors->has('location_three')) is-invalid @endif" value="{{$contactRecord->location_three}}" type="text" placeholder="Enter Country/Branch name" >
                             @if($errors->has('location_three'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('location_three')}}
@@ -82,50 +84,33 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Address 3</label>
-                            <textarea name="address_three" rows="3" class="form-control @if($errors->has('address_three')) is-invalid @endif" placeholder="Enter address details">{{old('address_three')}}</textarea>
+                            <textarea name="address_three" rows="3" class="form-control @if($errors->has('address_three')) is-invalid @endif" placeholder="Enter address details">{{$contactRecord->address_three}}</textarea>
                             @if($errors->has('address_three'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('address_three')}}
                                 </div>
                             @endif
                         </div>
-
-                        <hr>
+                    </div>
+                    <hr>
+                    <div class="col-lg-12">
+                        <label class="control-label">Google Maps Embaded Link</label>
+                        <textarea name="google_maps" rows="3" class="form-control @if($errors->has('google_maps')) is-invalid @endif" placeholder="Enter address details"><iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{$contactRecord->google_maps}}"></iframe></textarea>
+                        @if($errors->has('google_maps'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('google_maps')}}
+                            </div>
+                        @endif
+                        <br>
                         <div class="form-group">
-                            <label class="control-label">Google Maps</label>
-                            <textarea name="google_maps" rows="3" class="form-control @if($errors->has('google_maps')) is-invalid @endif" placeholder="Enter feature description">{{old('google_maps')}}</textarea>
-                            @if($errors->has('google_maps'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('google_maps')}}
-                                </div>
-                            @endif
+                            <input class="btn btn-primary" value="Publish" type="submit">
                         </div>
+                    </div>
+                    <hr>
 
-                        <div class="animated-radio-button">
-                            <label>Publication Status</label>
-                            <div >
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="1" checked="checked"><span class="label-text">Active</span>
-                                </label>
-                            </div>
-
-                            <div>
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="0"><span class="label-text">Inactive</span>
-                                </label>
-                            </div>
-                            @if($errors->has('status'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('status')}}
-                                </div>
-                            @endif
-                        </div>
-                        <div class="tile-footer">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Contact</button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
+
 @endsection

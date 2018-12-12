@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ContactConfig;
+use App\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -11,63 +11,88 @@ class ContactController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     *
      */
-//    public function index(){
-//        //
-//    }
-
-    public function configContact()
+    public function index()
     {
-        $contactRecord = ContactConfig::first();
-        if ($contactRecord){
-            return $this->edit($contactRecord);
-        }
-        return $this->create();
+        $messages=Contact::orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.contact.messages', compact('messages'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('backend.contact.add_contact');
-    }
-    public function store(Request $request){
-        $request->validate([
-            'location_one' => 'required|max:255',
-            'address_one' => 'required',
-            'google_maps' => 'required',
-        ]);
-        Contact::create([
-            'location_one' => $request->location_one,
-            'address_one' => $request->address_one,
-            'location_two' => $request->location_two,
-            'address_two' => $request->address_two,
-            'location_three' => $request->location_three,
-            'address_three' => $request->address_three,
-            'google_maps' => $request->google_maps,
-        ]);
-        return redirect('conatcts/config')->withMessage('Contact Page information updated.');
+        return view('frontend.contact.contact');
     }
 
-    public function edit($contactRecord)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        return view('backend.contact.edit_contact', compact('$contactRecord'));
-    }
-    public function update(Request $request){
         $request->validate([
-            'location_one' => 'required|max:255',
-            'address_one' => 'required',
-            'google_maps' => 'required',
+            'name' => 'required|max:100' ,
+            'email' => 'required|email|max:100' ,
+            'phone' => 'required|max:50' ,  //regex:/(01)[0-9]{9}/
+            'country' => 'required|max:255' ,
+            'subject' => 'required|max:255' ,
+            'message' => 'required' ,
         ]);
-        $contactConfig=ContactConfig::first();
-        $contactConfig->update([
-            'location_one' => $request->location_one,
-            'address_one' => $request->address_one,
-            'location_two' => $request->location_two,
-            'address_two' => $request->address_two,
-            'location_three' => $request->location_three,
-            'address_three' => $request->address_three,
-            'google_maps' => $request->google_maps,
-        ]);
-        return redirect('contact/config')->withMessage('Contact Page information updated.');
+
+        $input=$request->all();
+        Contact::create($input);
+    return redirect('contact')->withMessage('We will notify you soon.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Contact $message)
+    {
+        $message->delete();
+        return redirect('messages')->withMessage('Message Deleted');
     }
 }

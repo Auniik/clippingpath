@@ -32,41 +32,72 @@
     <div class="sub-area">
 
         <div class="main-wrapper head-area">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 col-sm-3">
-                        <span class="logo"><a href="index.html"><img class="img img-responsive" src="assets/images/logo.png" alt=""></a></span>
+                    <div class="col-md-3 col-sm-3">
+                        <span class="logo"><a href="{{url('/')}}"><img class="img img-responsive" src="{{asset('frontend/images/logo.png')}}" alt=""></a></span>
                     </div>
-                    <div class="col-md-8 col-sm-9">
+                    <div class="col-md-9 col-sm-9">
                         <div class="main-menu-area">
                             <!-- <div class="menu-controll"><p>+</p></div> -->
                             <!-- lavaLamp class is require for lavaLamp effect -->
                             <ul class="main-menu lavaLamp">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="#">Services +</a>
+                                <li><a href="{{url('/')}}" class="active">Home</a></li>
+                                {{--<li><a href="about.html">About</a></li>--}}
+                                <li><a href="#">Clipping Mask</a>
                                     <ul class="sub-menu">
-                                        <li><a href="clipping-path.html">Clipping Path</a></li>
-                                        <li><a href="photoshop-masking.html">Masking</a></li>
-                                        <li><a href="color-masking.html">Color Masking</a></li>
-                                        <li><a href="photo-retouch.html">Retouching</a></li>
-                                        <li><a href="old-photo-restoration.html">Old Photo restoration</a></li>
-                                        <li><a href="neck-join.html">Neck Join</a></li>
-                                        <li><a href="mannequin-removal.html">Invisible man</a></li>
-                                        <li><a href="shadow-creation.html">Shadow Creation</a></li>
-                                        <li><a href="reflection-creation.html">Reflation creation</a></li>
-                                        <li><a href="cropping-resize.html">Cropping &amp; Resize</a></li>
-                                        <li><a href="web-image-optimization.html">Web image optimization</a></li>
-                                        <li><a href="logo-and-identity-design.html">Logo and identity design</a></li>
-                                        <li><a href="ui-design.html">UI Design</a></li>
+                                        <li><a href="#">Clipping Path</a></li>
+                                        <li><a href="#">Photoshop Masking</a></li>
                                     </ul>
                                 </li>
-                                <!-- <li><a href="#">UI Design</a></li>
-                                <li><a href="#">Identity Design</a></li> -->
-                                <li><a href="price.html">Price</a></li>
-                                <li><a href="howitworks.html">How It works</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#">Shadow Effect</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Mirroring Effect</a></li>
+                                        <li><a href="#">Drop Shadow</a></li>
+                                        <li><a href="#">Natural Shadow</a></li>
+                                        <li><a href="#">Reflection Shadow</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Retouching</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Color Correction</a></li>
+                                        <li><a href="#">Photo Restoration</a></li>
+                                        <li><a href="#">Beauty Retouching</a></li>
+                                        <li><a href="#">Photo Manipulation</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Raster to Vector</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Line Art</a></li>
+                                        <li><a href="#">Logo Redesign</a></li>
+                                        <li><a href="#">Photo Conversion</a></li>
+                                        <li><a href="#">T-Shirt Layout Design</a></li>
+                                        <li><a href="#">Ad Layout Design</a></li>
+                                    </ul>
+                                </li>
+
+                                {{--<li><a href="#">Services +</a>--}}
+                                {{--<ul class="sub-menu">--}}
+                                {{--<li><a href="clipping-path.html">Clipping Path</a></li>--}}
+                                {{--<li><a href="photoshop-masking.html">Masking</a></li>--}}
+                                {{--<li><a href="color-masking.html">Color Masking</a></li>--}}
+                                {{--<li><a href="photo-retouch.html">Retouching</a></li>--}}
+                                {{--<li><a href="old-photo-restoration.html">Old Photo restoration</a></li>--}}
+                                {{--<li><a href="neck-join.html">Neck Join</a></li>--}}
+                                {{--<li><a href="mannequin-removal.html">Invisible man</a></li>--}}
+                                {{--<li><a href="shadow-creation.html">Shadow Creation</a></li>--}}
+                                {{--<li><a href="reflection-creation.html">Reflation creation</a></li>--}}
+                                {{--<li><a href="cropping-resize.html">Cropping &amp; Resize</a></li>--}}
+                                {{--<li><a href="web-image-optimization.html">Web image optimization</a></li>--}}
+                                {{--<li><a href="logo-and-identity-design.html">Logo and identity design</a></li>--}}
+                                {{--<li><a href="ui-design.html">UI Design</a></li>--}}
+                                {{--</ul>--}}
+                                {{--</li>--}}
+                                {{--<li><a href="price.html">Price</a></li>--}}
+                                {{--<li><a href="howitworks.html">How It works</a></li>--}}
+                                <li><a href="contact.html">Portfolio</a></li>
                                 <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -223,7 +254,7 @@
                 items: 1
             },
             600: {
-                items: 3
+                items: 2
             },
             1000: {
                 items: 4

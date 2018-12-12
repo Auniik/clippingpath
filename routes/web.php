@@ -7,9 +7,9 @@ Route::get('/', function () {
 
 
 Route::group(['middleware'=>'auth'], function(){
-//    Route::get('dashboard', function() {
-//        return view('backend.dashboard');
-//    });
+    Route::get('dashboard', function() {
+        return view('backend.dashboard');
+    });
 
 
     //User Management
@@ -22,9 +22,11 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('features', 'FeatureController');
     Route::resource('blogs', 'BlogController');
     //Contact Config
-    Route::get('contact/config', 'ContactController@configContact');
-    Route::get('contact/save', 'ContactController@store');
-    Route::get('contact/update', 'ContactController@update');
+    Route::get('contact/config', 'ContactConfigController@configContact');
+    Route::post('contact/save', 'ContactConfigController@store');
+    Route::post('contact/update', 'ContactConfigController@update');
+    Route::get('messages', 'ContactController@index');
+    Route::delete('message/{message}', 'ContactController@destroy')->name('message.destroy');
 
 
 
@@ -36,3 +38,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'MainPageController@index');
+Route::get('contact', 'ContactController@create');
+Route::post('contact', 'ContactController@store')->name('message.send');

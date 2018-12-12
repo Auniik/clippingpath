@@ -17,11 +17,11 @@ class CreateContactConfigsTable extends Migration
             $table->increments('id');
             $table->string('location_one');
             $table->text('address_one');
-            $table->string('location_two');
-            $table->text('address_two');
-            $table->string('location_one');
-            $table->text('address_three');
-            $table->string('google_maps');
+            $table->string('location_two')->nullable(true);
+            $table->text('address_two')->nullable(true);
+            $table->string('location_three')->nullable(true);
+            $table->text('address_three')->nullable(true);
+            $table->text('google_maps');
             $table->timestamps();
         });
     }

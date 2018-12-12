@@ -32,43 +32,38 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Thumbnail</th>
-                            <th>Headline</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Country</th>
+                            <th>Subject</th>
                             <th>Description</th>
-                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php $sl=$blogs->firstItem() ?>
-                        @foreach($blogs as $key => $blog)
+                        <?php $sl=$messages->firstItem() ?>
+                        @foreach($messages as $key => $message)
                             <tr>
                                 <td>{{$sl++}}</td>
-                                <td><img src="{{url($blog->thumbnail)}}" alt="" style="height:60px; width: 60px"></td>
-                                <td>{{$blog->headline}}</td>
-                                <td>{!!substr($blog->description, 0,50)!!}</td>
+                                <td>{{$message->name}}</td>
+                                <td>{{$message->email}}</td>
+                                <td>{{$message->phone}}</td>
+                                <td>{{$message->country}}</td>
+                                <td>{{$message->subject}}</td>
+                                <td>{!!substr($message->message, 0,50)!!}</td>
 
-                                @if($blog->status==1)
-                                    <td>
-                                        <span class="badge badge-success">Active</span>
-                                    </td>
-                                @else
-                                    <td>
-                                        <span class="badge badge-danger">Inactive</span>
-                                    </td>
-                                @endif
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-warning" href="{{route('blogs.show', $blog)}}"><i class="fa fa-eye fa-fw"></i></a>
-                                        <a class="btn btn-sm btn-primary" href="{{route('blogs.edit', $blog)}}"><i class="fa fa-edit fa-fw"></i></a>
-                                        <a class="btn btn-sm delete-data btn-danger" href="{{route('blogs.destroy', $blog)}}"><i class="fa fa-trash-o fa-fw"></i></a>
+                                        <a class="btn btn-sm btn-warning" href=""><i class="fa fa-eye fa-fw"></i></a>
+                                        <a class="btn btn-sm delete-data btn-danger" href="{{route('message.destroy', $message)}}"><i class="fa fa-trash-o fa-fw"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    <div>{{$blogs->links()}}</div>
+                    <div>{{$messages->links()}}</div>
                 </div>
             </div>
         </div>

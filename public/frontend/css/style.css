@@ -1406,7 +1406,7 @@
 	  font-size: 14px;
 	  margin-top: 40px;
 	  padding-bottom: 25px;
-	  background: url(../images/shadow.png) no-repeat #fff center 101%;
+	  background: url(../images/shadow.png) no-repeat #f1f1f1 center 101%;
 	  color: #404040;
   }
   .footer-area a {
@@ -2536,7 +2536,9 @@
 		   -o-box-sizing: border-box;
 			  box-sizing: border-box;
   }
-  
+ul.contact-form li .invalid-block{
+	border:1px solid #f70000;
+}
   ul.contact-form li span {
 	  position: absolute;
 	  top: 0px;
@@ -4218,7 +4220,7 @@
   @-moz-keyframes leftright {
 	  0% {
 		  left : 153px;
-		  top: 30px; linear
+		  top: 30px; linear;
 	  }
 	  50% {
 		  top: 14px;
@@ -4244,7 +4246,7 @@
   @-o-keyframes leftright {
 	  0% {
 		  left : 153px;
-		  top: 30px; linear
+		  top: 30px; linear;
 	  }
 	  50% {
 		  top: 14px;
@@ -5256,7 +5258,7 @@
 	  @-moz-keyframes leftright {
 		  0% {
 			  left : 41px;
-			  top: 3px; linear
+			  top: 3px; linear;
 		  }
 		  50% {
 			  top: 1px;
@@ -5282,7 +5284,7 @@
 	  @-o-keyframes leftright {
 		  0% {
 			  left : 41px;
-			  top: 3px; linear
+			  top: 3px; linear;
 		  }
 		  50% {
 			  top: 1px;

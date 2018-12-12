@@ -38,12 +38,19 @@
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"
+                            ><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+                </li>
             </ul>
         </li>
     </ul>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </header>
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
@@ -55,16 +62,27 @@
         </div>
     </div>
     <ul class="app-menu">
-        <li><a class="app-menu__item" href="{{url('/')}}" target="_blank"><i class="app-menu__icon fa fa-external-link"></i><span class="app-menu__label">Visit Site</span></a></li>
-        <li><a class="app-menu__item" href=""><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li><a class="app-menu__item {{ $url  == 'settings' ? 'active' : '' }}" href="{{url('settings')}}" href="{{url('settings')}}"><i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Site Configuration</span></a></li>
 
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info"></i><span class="app-menu__label">Features</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        {{--Visit Site--}}
+        <li>
+            <a class="app-menu__item" href="{{url('/')}}" target="_blank"><i class="app-menu__icon fa fa-external-link"></i><span class="app-menu__label">Visit Site</span></a>
+        </li>
+        {{--Dashboard--}}
+        <li>
+            <a class="app-menu__item {{ $url  == 'dashboard' ? 'active' : '' }}" href="{{url('dashboard')}}" href="{{url('dashboard')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a>
+        </li>
+        {{--Site Configurations--}}
+        <li>
+            <a class="app-menu__item {{ $url  == 'settings' ? 'active' : '' }}" href="{{url('settings')}}" href="{{url('settings')}}"><i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Site Configuration</span></a>
+        </li>
+        {{--Pages--}}
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bars"></i><span class="app-menu__label">Menus</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'features/create' ? 'active' : '' }}" href="{{url('features/create')}}"><i class="icon fa fa-circle-o"></i> Add Feature</a></li>
-                <li><a class="treeview-item {{ $url  == 'features' ? 'active' : '' }}" href="{{url('features')}}"><i class="icon fa fa-circle-o"></i> Manage Feature</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Page</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Page</a></li>
             </ul>
         </li>
+        {{--BLOGS--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-newspaper-o
 "></i><span class="app-menu__label">Blogs</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
@@ -72,7 +90,48 @@
                 <li><a class="treeview-item {{ $url  == 'blogs' ? 'active' : '' }}" href="{{url('blogs')}}"><i class="icon fa fa-circle-o"></i> Manage Blogs</a></li>
             </ul>
         </li>
-        
+        {{--FEATURES--}}
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info"></i><span class="app-menu__label">Features</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'features/create' ? 'active' : '' }}" href="{{url('features/create')}}"><i class="icon fa fa-circle-o"></i> Add Feature</a></li>
+                <li><a class="treeview-item {{ $url  == 'features' ? 'active' : '' }}" href="{{url('features')}}"><i class="icon fa fa-circle-o"></i> Manage Feature</a></li>
+            </ul>
+        </li>
+        {{--Portfolio--}}
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-briefcase"></i><span class="app-menu__label">Portfolio</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Work</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Portfolio</a></li>
+            </ul>
+        </li>
+
+        {{--Testimonials--}}
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Testimonials</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Testimonial</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Testimonials</a></li>
+            </ul>
+        </li>
+
+        {{--Slider--}}
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-picture-o"></i><span class="app-menu__label">Slider</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Slider Image</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Sliders</a></li>
+            </ul>
+        </li>
+
+        {{--CONTACT PAGE--}}
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-envelope
+"></i><span class="app-menu__label">Contacts</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li><a class="treeview-item {{ $url  == 'contact/config' ? 'active' : '' }}" href="{{url('contact/config')}}"><i class="icon fa fa-circle-o"></i> Contact Config</a></li>
+                <li><a class="treeview-item {{ $url  == 'messages' ? 'active' : '' }}" href="{{url('messages')}}"><i class="icon fa fa-circle-o"></i> Messages</a></li>
+            </ul>
+        </li>
+
+
+        {{--USER MANAGEMENT--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">User Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
                 <li><a class="treeview-item {{ $url  == 'users/create' ? 'active' : '' }}" href="{{url('users/create')}}"><i class="icon fa fa-circle-o"></i> Add User</a></li>
