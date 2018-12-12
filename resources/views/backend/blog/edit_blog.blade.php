@@ -15,8 +15,8 @@
     <div class="row">
         <div class="col-md-7">
             <div class="tile">
-                <h3 class="tile-title">Edit Blog</h3>
-                <div class="tile-body">
+                <h3 class="tile-title col-lg-8 offset-lg-2">Edit Blog</h3><hr>
+                <div class="tile-body col-lg-8 offset-lg-2">
                     <form action="{{route('blogs.update', $blog->id)}}" method="post" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="tile-footer">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Blog</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Blog</button>
                         </div>
                     </form>
                 </div>

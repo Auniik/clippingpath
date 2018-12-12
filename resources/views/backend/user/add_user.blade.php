@@ -8,7 +8,7 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('users/create')}}">Add User</a></li>
+            <li class="breadcrumb-item"><a href="{{url('users')}}">Manage Users</a></li>
         </ul>
     </div>
 
@@ -23,10 +23,10 @@
     ?>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Add Users</h3>
-                <div class="tile-body">
+                <h3 class="tile-title col-lg-8 offset-lg-2">Add Users</h3><hr>
+                <div class="tile-body col-lg-8 offset-lg-2">
                     <form action="{{url('users')}}" method="post">
                         @csrf
                         <div class="form-group">

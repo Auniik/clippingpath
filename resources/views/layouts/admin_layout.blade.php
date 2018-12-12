@@ -25,7 +25,7 @@
 </head>
 <body class="app sidebar-mini rtl">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="index.html">CliipingPath</a>
+<header class="app-header"><a class="app-header__logo" href="{{url('/dashboard')}}">CliipingPath</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -100,16 +100,16 @@
         {{--Portfolio--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-briefcase"></i><span class="app-menu__label">Portfolio</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Work</a></li>
-                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Portfolio</a></li>
+                <li><a class="treeview-item {{ $url  == 'portfolio-items/create' ? 'active' : '' }}" href="{{url('portfolio-items/create')}}"><i class="icon fa fa-circle-o"></i> Add Work</a></li>
+                <li><a class="treeview-item {{ $url  == 'portfolio-items' ? 'active' : '' }}" href="{{url('portfolio-items')}}"><i class="icon fa fa-circle-o"></i> Manage Portfolio</a></li>
             </ul>
         </li>
 
         {{--Testimonials--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Testimonials</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Testimonial</a></li>
-                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Testimonials</a></li>
+                <li><a class="treeview-item {{ $url  == 'feedbacks/create' ? 'active' : '' }}" href="{{url('feedbacks/create')}}"><i class="icon fa fa-circle-o"></i> Add Testimonial</a></li>
+                <li><a class="treeview-item {{ $url  == 'feedbacks' ? 'active' : '' }}" href="{{url('feedbacks')}}"><i class="icon fa fa-circle-o"></i> Manage Testimonials</a></li>
             </ul>
         </li>
 
@@ -128,6 +128,11 @@
                 <li><a class="treeview-item {{ $url  == 'contact/config' ? 'active' : '' }}" href="{{url('contact/config')}}"><i class="icon fa fa-circle-o"></i> Contact Config</a></li>
                 <li><a class="treeview-item {{ $url  == 'messages' ? 'active' : '' }}" href="{{url('messages')}}"><i class="icon fa fa-circle-o"></i> Messages</a></li>
             </ul>
+        </li>
+
+        {{--//Newsletter--}}
+        <li>
+            <a class="app-menu__item" href="{{url('/newsletters')}}" target="_blank"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Newsletters</span></a>
         </li>
 
 

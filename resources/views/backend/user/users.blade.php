@@ -1,14 +1,14 @@
 @extends('layouts.admin_layout')
-@section('title', 'Users')
+@section('title', 'Manage Users')
 @section('admin_content')
           <div class="app-title">
                     <div>
-                              <h1><i class="fa fa-user"></i> All User</h1>
+                              <h1><i class="fa fa-user"></i> Manage Users</h1>
                               <p>Manage all users</p>
                     </div>
                     <ul class="app-breadcrumb breadcrumb">
                               <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                              <li class="breadcrumb-item"><a href="{{url('users')}}">All User</a></li>
+                              <li class="breadcrumb-item"><a href="{{url('users/create')}}">Add User</a></li>
                     </ul>
           </div>
 
@@ -23,9 +23,9 @@
           ?>
 
           <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                               <div class="tile">
-                                        <h3 class="tile-title">Users</h3>
+                                        <h3 class="tile-title ">Manage Users</h3>
                                         <table class="table table-striped">
 
                                                   <thead>

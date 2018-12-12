@@ -3,12 +3,12 @@
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-info"></i> Add Item</h1>
+            <h1><i class="fa fa-briefcase"></i> Add Item</h1>
             <p>Add some work items you have done for portfolio page</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('features/create')}}">Add Work</a></li>
+            <li class="breadcrumb-item"><a href="{{url('portfolio-items')}}">Portfolio Items</a></li>
         </ul>
     </div>
 
@@ -23,30 +23,13 @@
     ?>
 
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Add Work</h3>
-                <div class="tile-body">
-                    <form action="{{url('features')}}" method="post" enctype="multipart/form-data">
+                <h3 class="tile-title col-lg-8 offset-lg-2">Add Work</h3><hr>
+                <div class="tile-body col-lg-8 offset-lg-2">
+                    <form action="{{url('portfolio-items')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
-                            <label class="control-label">Content Title</label>
-                            <input name="title" class="form-control @if($errors->has('title')) is-invalid @endif" value="{{old('title')}}" type="text" placeholder="Enter feature headline" >
-                            @if($errors->has('title'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('title')}}
-                                </div>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Description</label>
-                            <textarea name="description" id="summernote" class="form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter feature description">{{old('description')}}</textarea>
-                            @if($errors->has('description'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('description')}}
-                                </div>
-                            @endif
-                        </div>
+
                         <div class="form-group">
                             <label class="control-label">Before Image</label>
                             <input class="form-control @if($errors->has('before_thumbnail')) is-invalid @endif" name="before_thumbnail" type="file" >
@@ -68,7 +51,24 @@
                                 </div>
                             @endif
                         </div>
-
+                        <div class="form-group">
+                            <label class="control-label">Content Title</label>
+                            <input name="title" class="form-control @if($errors->has('title')) is-invalid @endif" value="{{old('title')}}" type="text" placeholder="Enter item title" >
+                            @if($errors->has('title'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('title')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Description</label>
+                            <textarea name="description" id="summernote" class="form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter item's description">{{old('description')}}</textarea>
+                            @if($errors->has('description'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('description')}}
+                                </div>
+                            @endif
+                        </div>
 
                         <div class="animated-radio-button">
                             <label>Publication Status</label>

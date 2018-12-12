@@ -3290,10 +3290,14 @@ ul.contact-form li .invalid-block{
   }
   .lavaLamp li a:hover {
 	background:#eeeeee;
-	border-radius:0px 0px 5px 5px;
+	color:black;
+	border-top:1px solid black;
+	/*border-bottom:1px solid black;*/
+	/*border-radius:0px 0px 5px 5px;*/
 }
 	.lavaLamp li a:active {
 		background:#eeeeee;
+	border-top:1px solid black;
 	}
   
   /*-----------------------new style septembar 3----------------------*/

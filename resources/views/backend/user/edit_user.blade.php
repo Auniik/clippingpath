@@ -23,10 +23,10 @@
           ?>
 
           <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                               <div class="tile">
-                                        <h3 class="tile-title">Edit User</h3>
-                                        <div class="tile-body">
+                                        <h3 class="tile-title col-lg-8 offset-lg-2">Edit User</h3><hr>
+                                        <div class="tile-body col-lg-8 offset-lg-2">
                                                   <form action="{{route('users.update', $user->id)}}" method="post">
                                                             @method('patch')
                                                             @csrf
