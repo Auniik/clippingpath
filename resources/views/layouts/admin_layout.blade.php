@@ -78,8 +78,8 @@
         {{--Pages--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bars"></i><span class="app-menu__label">Menus</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Page</a></li>
-                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Page</a></li>
+                <li><a class="treeview-item {{ $url  == 'pages/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Page</a></li>
+                <li><a class="treeview-item {{ $url  == 'pages' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Page</a></li>
             </ul>
         </li>
         {{--BLOGS--}}
@@ -116,8 +116,8 @@
         {{--Slider--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-picture-o"></i><span class="app-menu__label">Slider</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Slider Image</a></li>
-                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Sliders</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders/create' ? 'active' : '' }}" href="{{url('sliders/create')}}"><i class="icon fa fa-circle-o"></i> Add Slider Image</a></li>
+                <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href="{{url('sliders')}}"><i class="icon fa fa-circle-o"></i> Manage Sliders</a></li>
             </ul>
         </li>
 

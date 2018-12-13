@@ -19,7 +19,7 @@ class CreatePortfoliosTable extends Migration
             $table->text('after_thumbnail');
             $table->string('title');
             $table->text('description');
-            $table->string('status');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

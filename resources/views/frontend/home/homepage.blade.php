@@ -8,37 +8,37 @@
 
                 <!--LayerSlider layer-->
                 <div class="ls-layer">
-                    <div id="layer-01-bg" class="ls-bg" style="layer1-background></div>
-                <div id="layer-01-bg-02" class="ls-s6" style="layer1-sublayer1" data-rel="delayin: 1000; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
+                    <div id="layer-01-bg" class="ls-bg" style=""></div>
+                <div id="layer-01-bg-02" class="ls-s6" style="background:#e74c3cCF;" data-rel="delayin: 500; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
 
-                <div id="layer-01-slide-01" class="ls-s6" style="layer1-sublayer2" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1500;">
+                <div id="layer-01-slide-01" class="ls-s6" style="" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1500;">
                     <p>REFLECTION</p>
                     <img src="{{asset('frontend/images/home-slider/image-01.png')}}" alt="home-slider-01">
                 </div>
 
-                <div id="layer-01-slide-02" class="ls-s4" style="layer1-sublayer3" data-rel="delayin: 100; slidedirection: bottom; slideoutdirection: bottom; durationin: 2000;">
+                <div id="layer-01-slide-02" class="ls-s4" style="" data-rel="delayin: 100; slidedirection: bottom; slideoutdirection: bottom; durationin: 2000;">
                     <img src="{{asset('frontend/images/home-slider/image-02.png')}}" alt="home-slider-02">
                     <p>CLIPPING PATH WITH SHADOW</p>
                 </div>
 
-                <div id="layer-01-slide-03" class="ls-s2" style="layer1-sublayer4" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1000;">
+                <div id="layer-01-slide-03" class="ls-s2" style="" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1000;">
                     <p class="pera-01">Perfect clipping</p>
                     <p class="pera-02">at low price</p>
                     <p class="pera-03">Starts From <span class="bold">$0.20</span></p>
                     <a href="inside/auth.html" class="slider-button">Try 3 Images for free now <span>></span></a>
                 </div>
             </div>
-            <div class="ls-layer">
-                <div id="layer-02-bg" class="ls-bg" style="layer2-background"></div>
+            {{--<div class="ls-layer">--}}
+                {{--<div id="layer-02-bg" class="ls-bg" style=""></div>--}}
 
-                <img id="layer-02-slide-01" class="ls-s6" src="{{asset('frontend/images/home-slider/image-03.png')}}" style="layer2-sublayer1" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 2000;" alt="home-slider-02-01">
+                {{--<img id="layer-02-slide-01" class="ls-s6" src="{{asset('frontend/images/home-slider/image-03.png')}}" style="layer2-sublayer1" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 2000;" alt="home-slider-02-01">--}}
 
-                <div id="layer-02-slide-02" class="ls-s2" style="layer2-sublayer2" data-rel="delayin: 100; slidedirection: left; slideoutdirection: bottom; durationin: 1500;">
-                    <p class="style-01">Photographer's Choice.</p>
-                    <p class="style-02">nested hope for <span class="highlight">100 + Photographers</span><br>around the globe</p>
-                    <a href="inside/auth.html" class="slide02-button">Try Now <span>></span></a>
-                </div>
-            </div>
+                {{--<div id="layer-02-slide-02" class="ls-s2" style="" data-rel="delayin: 100; slidedirection: left; slideoutdirection: bottom; durationin: 1500;">--}}
+                    {{--<p class="style-01">Photographer's Choice.</p>--}}
+                    {{--<p class="style-02">nested hope for <span class="highlight">100 + Photographers</span><br>around the globe</p>--}}
+                    {{--<a href="inside/auth.html" class="slide02-button">Try Now <span>></span></a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
         </div>
         <!--LayerSlider end-->
