@@ -27,6 +27,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('users', 'UserController');
     //Slider Management
     Route::resource('sliders', 'SliderController');
+    Route::post('sliders/save', 'SliderController@save');
     //Features Management
     Route::resource('features', 'FeatureController');
     //Blog Management

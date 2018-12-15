@@ -21,13 +21,14 @@
         Session::put('message',null);
     }
     ?>
+
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
+                <h2>Slider Style 1</h2><hr>
                 <form class="row" action="{{url('sliders')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="col-lg-6">
-                        <h3>Wide Image</h3><hr>
                         <div class="form-group">
                             <label class="control-label">Wide Image</label>
                             <input class="form-control @if($errors->has('thumbnail_wide')) is-invalid @endif" name="thumbnail_wide" type="file" >
@@ -40,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Wide Image Title</label>
-                            <textarea name="thumbnail_wide_title" rows="2" class="form-control @if($errors->has('thumbnail_wide_title')) is-invalid @endif" placeholder="Enter feature title of this image">{{old('thumbnail_wide_title')}}</textarea>
+                            <textarea name="thumbnail_wide_title"  rows="2" class="form-control @if($errors->has('thumbnail_wide_title')) is-invalid @endif" placeholder="Enter feature title of this image">{{old('thumbnail_wide_title')}}</textarea>
                             @if($errors->has('thumbnail_wide_title'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('thumbnail_wide_title')}}
@@ -49,7 +50,6 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <h3>Square Image</h3><hr>
                         <div class="form-group">
                             <label class="control-label">Square Image</label>
                             <input class="form-control @if($errors->has('thumbnail_square')) is-invalid @endif" name="thumbnail_square" type="file" >
@@ -62,20 +62,15 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Square Image Title</label>
-                            <textarea name="thumbnail_square_title" rows="2" class="form-control" placeholder="Enter feature title of this image">{{old('thumbnail_square_title')}}</textarea>
+                            <textarea name="thumbnail_square_title" class="form-control" placeholder="Enter feature title of this image">{{old('thumbnail_square_title')}}</textarea>
                         </div>
+
                     </div>
 
 
-                    <div class="col-lg-6 offset-lg-3">
-                        <hr>
-                        <h3>Background Image</h3><hr>
+                    <div class="col-lg-7">
                         <div class="form-group">
-                            <label class="control-label">Background Image</label>
-                            <input class="form-control @if($errors->has('background_thumbnail')) is-invalid @endif" name="background_thumbnail" type="file" >
-                            <p class="text-primary">Note: Aspect ratio of Image must be 11:4.</p>
-                        </div>
-                        <div class="form-group">
+                            <hr>
                             <label class="control-label">Background Color</label>
                             <input class="form-control @if($errors->has('background_color')) is-invalid @endif" name="background_color" type="color" style="height: 50px;" value="#539662">
                             <p class="text-primary">Note: Background color will show when there is no existance of  background image.</p>
@@ -87,7 +82,52 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Background Text</label>
-                            <textarea name="background_text" rows="4" class="form-control @if($errors->has('background_text')) is-invalid @endif" placeholder="Enter item's description">{{old('background_text')}}</textarea>
+                            <textarea name="background_text" id="summernote" class="summernote form-control @if($errors->has('background_text')) is-invalid @endif" placeholder="Enter item's description">{{old('background_text')}}</textarea>
+
+                            @if($errors->has('background_text'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('background_text')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="animated-radio-button">
+                            <label>Publication Status</label>
+                            <div >
+                                <label class="form-check-label">
+                                    <input type="radio" name="status" class="form-check-input" value="1" checked="checked"><span class="label-text">Active</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="form-check-label">
+                                    <input type="radio" name="status" class="form-check-input" value="0"><span class="label-text">Inactive</span>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input class="btn btn-primary col-md-12" value="Publish" type="submit">
+                        </div>
+                    </div>
+                    <hr>
+
+                </form>
+            </div>
+
+            <div class="tile">
+                <h2>Slider Style 2</h2><hr>
+                <form class="row" action="{{url('sliders/save')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="col-lg-7">
+                        <h3>Background Image</h3><hr>
+                        <div class="form-group">
+                            <label class="control-label">Background Image</label>
+                            <input class="form-control @if($errors->has('background_thumbnail')) is-invalid @endif" name="background_thumbnail" type="file" >
+                            <p class="text-primary">Note: Aspect ratio of Image must be 12:4. example:1200px * 400px</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Background Text</label>
+                            <textarea name="background_text" class="summernote form-control @if($errors->has('background_text')) is-invalid @endif" placeholder="Enter item's description">{{old('background_text')}}</textarea>
+
                             @if($errors->has('background_text'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('background_text')}}
@@ -118,4 +158,5 @@
             </div>
         </div>
     </div>
+
 @endsection

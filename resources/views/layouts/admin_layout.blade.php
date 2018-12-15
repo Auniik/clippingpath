@@ -177,7 +177,7 @@
 {{--SUMMERNOTE--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script>
-    $('#summernote').summernote({
+    $('.summernote').summernote({
         height: 200,
         styleWithSpan: false,
         toolbar: [

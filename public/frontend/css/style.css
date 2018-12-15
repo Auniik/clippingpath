@@ -3793,8 +3793,8 @@ ul.contact-form li .invalid-block{
   
   #layer-02-slide-01 {
 	  top: 0%;
-	  left: 60%;
-	  width: 550px;
+	  left: 0% !important;
+	  width: 100% !important;
   }
   #layer-02-slide-02 {
 	  top: 20%;

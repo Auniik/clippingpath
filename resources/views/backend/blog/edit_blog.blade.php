@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Description</label>
-                            <textarea name="description" id="summernote" class="form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter blog description">{{$blog->description}}</textarea>
+                            <textarea name="description" id="" class="summernote form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter blog description">{{$blog->description}}</textarea>
                             @if($errors->has('description'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('description')}}

@@ -1,44 +1,53 @@
 @extends('layouts.front_layout')
 @section('title', 'Home | Clipping Path')
 @section('content')
+    <?php
+        $slider_images=\App\Slider::where('background_thumbnail', null)->get();
+        $slider_bgs=\App\Slider::where('thumbnail_wide', null)->get();
+
+    ?>
     <div class="main-body">
         <div class="main-wrapper slider-area">
             <!--LayerSlider begin-->
             <div id="slider" style="width: 100%; height: 100%;">
 
+                @foreach($slider_images as $slider)
                 <!--LayerSlider layer-->
                 <div class="ls-layer">
                     <div id="layer-01-bg" class="ls-bg" style=""></div>
-                <div id="layer-01-bg-02" class="ls-s6" style="background:#e74c3cCF;" data-rel="delayin: 500; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
-
+                        <div id="layer-01-bg-02" class="ls-s6" style="background:{{$slider->background_color}};" data-rel="delayin: 500; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
                 <div id="layer-01-slide-01" class="ls-s6" style="" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1500;">
-                    <p>REFLECTION</p>
-                    <img src="{{asset('frontend/images/home-slider/image-01.png')}}" alt="home-slider-01">
+                    <p>{{$slider->thumbnail_square_title}}</p>
+                    <img src="{{$slider->thumbnail_square}}" alt="home-slider-01">
                 </div>
 
                 <div id="layer-01-slide-02" class="ls-s4" style="" data-rel="delayin: 100; slidedirection: bottom; slideoutdirection: bottom; durationin: 2000;">
-                    <img src="{{asset('frontend/images/home-slider/image-02.png')}}" alt="home-slider-02">
-                    <p>CLIPPING PATH WITH SHADOW</p>
+                    <img src="{{$slider->thumbnail_wide}}" alt="home-slider-02">
+                    <p>{{$slider->thumbnail_wide_title}}</p>
                 </div>
 
                 <div id="layer-01-slide-03" class="ls-s2" style="" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1000;">
-                    <p class="pera-01">Perfect clipping</p>
-                    <p class="pera-02">at low price</p>
-                    <p class="pera-03">Starts From <span class="bold">$0.20</span></p>
-                    <a href="inside/auth.html" class="slider-button">Try 3 Images for free now <span>></span></a>
+                    <p class="pera-01"></p>
+                    {{--<p class="pera-02">at low price</p>--}}
+                    <p class="pera-03">{!! $slider->background_text !!}</p>
+                    {{--<a href="inside/auth.html" class="slider-button">Try 3 Images for free now <span>></span></a>--}}
                 </div>
             </div>
-            {{--<div class="ls-layer">--}}
-                {{--<div id="layer-02-bg" class="ls-bg" style=""></div>--}}
+                    @endforeach
+                    @foreach($slider_bgs as $slider_bg)
 
-                {{--<img id="layer-02-slide-01" class="ls-s6" src="{{asset('frontend/images/home-slider/image-03.png')}}" style="layer2-sublayer1" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 2000;" alt="home-slider-02-01">--}}
+            <div class="ls-layer">
+                <div id="layer-02-bg" class="ls-bg" style=""></div>
 
-                {{--<div id="layer-02-slide-02" class="ls-s2" style="" data-rel="delayin: 100; slidedirection: left; slideoutdirection: bottom; durationin: 1500;">--}}
-                    {{--<p class="style-01">Photographer's Choice.</p>--}}
+                <img id="layer-02-slide-01" class="ls-s6" src="{{$slider_bg->background_thumbnail}}"  data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 2000;" alt="home-slider-02-01">
+
+                <div id="layer-02-slide-02" class="ls-s2" style="" data-rel="delayin: 100; slidedirection: left; slideoutdirection: bottom; durationin: 1500;">
+                    <p>{!!$slider_bg->background_text!!}</p>
                     {{--<p class="style-02">nested hope for <span class="highlight">100 + Photographers</span><br>around the globe</p>--}}
                     {{--<a href="inside/auth.html" class="slide02-button">Try Now <span>></span></a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+                </div>
+            </div>
+                        @endforeach
 
         </div>
         <!--LayerSlider end-->

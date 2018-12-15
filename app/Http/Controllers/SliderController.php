@@ -40,32 +40,40 @@ class SliderController extends Controller
         $request->validate([
             'thumbnail_wide_title' => 'max:160',
             'thumbnail_square_title' => 'max:160',
-            'background_text' => 'max:160',
-            'thumbnail_wide' => 'mimes:jpeg,bmp,jpg,png',
-            'thumbnail_square' => 'mimes:jpeg,bmp,jpg,png',
-            'background_thumbnail' => 'mimes:jpeg,bmp,jpg,png',
+            'thumbnail_wide' =>'required|mimes:jpeg,bmp,jpg,png',
+            'thumbnail_square' =>'required|mimes:jpeg,bmp,jpg,png',
+
         ]);
         $data = [
             'thumbnail_wide_title' => $request->thumbnail_wide_title,
             'thumbnail_square_title' => $request->thumbnail_square_title,
             'background_color' => $request->background_color,
+            'thumbnail_wide' => $request->thumbnail_wide->store('uploads/images/slider'),
+            'thumbnail_square' => $request->thumbnail_square->store('uploads/images/slider'),
+            'status' => $request->status,
+
+        ];
+
+
+        Slider::create($data);
+        return redirect('sliders/create')->withMessage('Item Created Successfully!');
+    }
+
+    public function save(Request $request)
+    {
+        $request->validate([
+            'background_thumbnail' => 'required|mimes:jpeg,bmp,jpg,png',
+        ]);
+        $data = [
             'background_text' => $request->background_text,
             'status' => $request->status,
         ];
 
-        if($request->hasFile('thumbnail_wide')){
-            $data['thumbnail_wide'] = $request->thumbnail_wide->store('uploads/images/slider');
-        }
-        if($request->hasFile('thumbnail_square')){
-        $data['thumbnail_square'] = $request->thumbnail_square->store('uploads/images/slider');
-    }
         if($request->hasFile('background_thumbnail')){
             $data['background_thumbnail'] = $request->background_thumbnail->store('uploads/images/slider');
         }
 
-
         Slider::create($data);
-
         return redirect('sliders/create')->withMessage('Item Created Successfully!');
     }
 
@@ -103,7 +111,6 @@ class SliderController extends Controller
         $request->validate([
             'thumbnail_wide_title' => 'max:160',
             'thumbnail_square_title' => 'max:160',
-            'background_text' => 'max:160',
             'thumbnail_wide' => 'mimes:jpeg,bmp,jpg,png',
             'thumbnail_square' => 'mimes:jpeg,bmp,jpg,png',
             'background_thumbnail' => 'mimes:jpeg,bmp,jpg,png',
@@ -148,6 +155,17 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+        if(!is_null($slider->thumbnail_square)){
+            Storage::delete($slider->thumbnail_square);
+        }
+        if(!is_null($slider->background_thumbnail)){
+            Storage::delete($slider->background_thumbnail);
+        }
+        if(!is_null($slider->thumbnail_wide)){
+            Storage::delete($slider->thumbnail_wide);
+        }
+        return redirect('sliders')->withMessage('Slider Items deleted');
+
     }
 }
