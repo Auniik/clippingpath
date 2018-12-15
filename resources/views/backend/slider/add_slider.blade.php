@@ -122,7 +122,7 @@
                         <div class="form-group">
                             <label class="control-label">Background Image</label>
                             <input class="form-control @if($errors->has('background_thumbnail')) is-invalid @endif" name="background_thumbnail" type="file" >
-                            <p class="text-primary">Note: Aspect ratio of Image must be 12:4. example:1200px * 400px</p>
+                            <p class="text-primary">Note: Aspect ratio of Image must be 12:4.5. example:1200px * 450px</p>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Background Text</label>

@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
+
+    //frontend
+    public  function allBlog()
+    {
+        $blogs=Blog::where('status',1)->orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.blog.blogs', compact('blogs'));
+
+    }
     /**
      * Display a listing of the resource.
      *

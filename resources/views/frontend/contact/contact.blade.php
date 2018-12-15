@@ -60,34 +60,28 @@
                                     <h3>Office Locations</h3>
                                     <ul class="location-list row">
                                         <li class="col-md-2">
-                                            <p class="location-name">Canada:</p>
-                                            <p>152 Heale Avenue<br/>
-                                                Scarborough Ontario<br/>
-                                                Zip: m1n3y1<br/>
-                                                Canada</p>
+                                            <p class="location-name">{{$contactInfo->location_one}}</p>
+                                            <p>{{$contactInfo->address_one}}</p>
                                         </li>
                                         <li class="col-md-2">
-                                            <p class="location-name">USA:</p>
-                                            <p>41-30,43rd Street<br/>
-                                                Sunnyside<br/>
-                                                NY-11104<br/>
-                                                USA</p>
+                                            <p class="location-name">{{$contactInfo->location_two}}</p>
+                                            <p>{{$contactInfo->address_two}}</p>
                                         </li>
                                         <li class="col-md-2">
-                                            <p class="location-name">Bangladesh:</p>
-                                            <p>DHAKA BANGLADESH</p>
+                                            <p class="location-name">{{$contactInfo->location_three}}</p>
+                                            <p>{{$contactInfo->address_three}}</p>
                                         </li>
                                     </ul>
                                     <ul class="contact-list">
                                         <li class="mobile-number">
-                                            <p><a href="callto:+1(484) 273-2547">+1(484) 273-2547</a></p>
+                                            <p><a href="callto:">+1(484) 273-2547</a></p>
                                         </li>
                                         <li class="email-address">
-                                            <a href="mailto:">info@clippingpath.com</a>
+                                            <a href="mailto:"></a>
                                         </li>
                                     </ul>
                                     <div class="map">
-                                        <iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14607.556378345314!2d90.386007!3d23.751334!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6f0612fa8107b57c!2sSmart+Software+Inc.!5e0!3m2!1sen!2sbd!4v1544267765247"></iframe>
+                                        {{$contactInfo->google_maps}}
                                     </div>
                                 </div>
                             </div>

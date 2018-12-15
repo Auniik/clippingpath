@@ -31,7 +31,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Content Title</label>
-                            <input name="title" class="form-control @if($errors->has('title')) is-invalid @endif" value="" type="text" placeholder="Enter feature headline" >
+                            <input name="title" class="form-control @if($errors->has('title')) is-invalid @endif" value="{{$portfolio_item->title}}" type="text" placeholder="Enter feature headline" >
                             @if($errors->has('title'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('title')}}
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Description</label>
-                            <textarea name="description" id="" class="summernote form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter feature description"></textarea>
+                            <textarea name="description" id="" class="summernote form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter feature description">{{$portfolio_item->description}}</textarea>
                             @if($errors->has('description'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('description')}}
@@ -73,12 +73,12 @@
                             <label>Publication Status</label>
                             <div >
                                 <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="1" {{$item->status==1 ? 'checked' : ''}}><span class="label-text">Active</span>
+                                    <input type="radio" name="status" class="form-check-input" value="1" {{$portfolio_item->status==1 ? 'checked' : ''}}><span class="label-text">Active</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="0"  {{$item->status==0 ? 'checked' : ''}}><span class="label-text">Inactive</span>
+                                    <input type="radio" name="status" class="form-check-input" value="0"  {{$portfolio_item->status==0 ? 'checked' : ''}}><span class="label-text">Inactive</span>
                                 </label>
                             </div>
                         </div>

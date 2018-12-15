@@ -132,7 +132,7 @@
 
         {{--//Newsletter--}}
         <li>
-            <a class="app-menu__item" href="{{url('/newsletters')}}" target="_blank"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Newsletters</span></a>
+            <a class="app-menu__item" href="{{url('newsletters')}}"><i class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Newsletters</span></a>
         </li>
 
 
@@ -188,7 +188,9 @@
             ['color', ['color']],
             ['para', ['ul', 'ol']],
             ['table', ['table']],
+            ['height', ['height']],
             ['view', ['codeview']],
+
         ],
         popover: {
             image: [],

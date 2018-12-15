@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
-use App\ContactConfig;
+use App\Newsletter;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class NewsletterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $messages=Contact::orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.contact.messages', compact('messages'));
+        $newsletters = Newsletter::orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.newsletters', compact('newsletters'));
     }
 
     /**
@@ -27,8 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $contactInfo = ContactConfig::first();
-        return view('frontend.contact.contact', compact('contactInfo'));
+        //
     }
 
     /**
@@ -40,26 +37,21 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:100' ,
-            'email' => 'required|email|max:100' ,
-            'phone' => 'required|max:50' ,  //regex:/(01)[0-9]{9}/
-            'country' => 'required|max:255' ,
-            'subject' => 'required|max:255' ,
-            'message' => 'required' ,
+           'email' => 'required|email'
         ]);
-
-        $input=$request->all();
-        Contact::create($input);
-    return redirect('contact')->withMessage('We will notify you soon.');
+        Newsletter::create([
+            'email' => $request->email,
+        ]);
+        return redirect('/');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Newsletter $newsletter)
     {
         //
     }
@@ -67,10 +59,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Newsletter $newsletter)
     {
         //
     }
@@ -79,10 +71,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Newsletter $newsletter)
     {
         //
     }
@@ -90,12 +82,12 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $message)
+    public function destroy(Newsletter $newsletter)
     {
-        $message->delete();
-        return redirect('messages')->withMessage('Message Deleted');
+        $newsletter->delete();
+        return redirect('newsletters')->withMessage('Newsletter request deleted');
     }
 }

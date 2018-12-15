@@ -999,9 +999,9 @@
   }
   
   .item-style p {
-	  /*padding: 12px 6% 15px;*/
-	  margin-bottom: 10px;
-	  font-size: 16px;
+	  padding: 0px 7px 0px;
+	  margin-bottom: 18px;
+	  font-size: 14px;
   }
   
   .item-style:last-child p {
@@ -2214,53 +2214,11 @@
   ul.tag li a:hover {
 	  color: #f6091e;
   }
-  
-  .pagination-dir-area {
-	  float: right;
-	  overflow: hidden;
-	  list-style: none;
-  }
-  .pagination-dir-area li {
-	  float: left;
-  }
-  .pagination-dir-area li a {
-	  width: 27px;
-	  height: 28px;
-	  display: block;
-  }
-  .pagination-dir-area li a.left {
-	  background: url(../images/pagination-left-arrow.png) no-repeat center #404040;
-  }
-  .pagination-dir-area li a.right {
-	  background: url(../images/pagination-right-arrow.png) no-repeat center #404040;
-  }
-  .pagination-dir-area li a:hover {
-	  background-color: #f6091e;
-  }
-  
-  .pagination-num-area {
-	  float: right;
-	  overflow: hidden;
-	  list-style: none;
-	  margin-right: 42px;
-  }
-  .pagination-num-area li {
-	  float: left;
-  }
-  .pagination-num-area li a {
-	  width: 27px;
-	  height: 28px;
-	  background: #404040;
-	  margin-left: 10px;
-	  display: block;
-	  text-align: center;
-	  line-height: 28px;
-	  text-decoration: none;
-	  color: #fff;
-  }
-  .pagination-num-area li a:hover {
-	  background: #f6091e;
-  }
+
+.pagination>li>a, .pagination>li>span {
+	padding: 8px 20px;
+}
+
   .social-counter {
 	  float: right;
 	  width: 110px;
@@ -5307,3 +5265,7 @@ ul.contact-form li .invalid-block{
 	  margin: 0 0 10px 25px;
   }
 
+.col-md-12.blog-list {
+	padding-left: 10%;
+	padding-right: 10%;
+}

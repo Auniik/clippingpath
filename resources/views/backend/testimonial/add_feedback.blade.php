@@ -61,7 +61,8 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Feedback Message</label>
-                            <textarea name="feedback" rows="4" class="form-control @if($errors->has('feedback')) is-invalid @endif" placeholder="Enter feedback message.">{{old('feedback')}}</textarea>
+                            <textarea name="feedback" rows="4" maxlength="230" class="form-control @if($errors->has('feedback')) is-invalid @endif" placeholder="Enter feedback message.">{{old('feedback')}}</textarea>
+                            <p class="text-primary">Note: Try to write feedback not more than 200 characters.</p>
                             @if($errors->has('feedback'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('feedback')}}

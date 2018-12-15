@@ -32,6 +32,7 @@
                         <div class="form-group">
                             <label class="control-label">Description</label>
                             <textarea name="description" id="" class="summernote form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter feature description">{{$feature->description}}</textarea>
+                            <p class="text-primary">Note: Try to write feature description under 160 characters.</p>
                             @if($errors->has('description'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('description')}}
@@ -41,7 +42,7 @@
                         <div class="form-group">
                             <label class="control-label">Feature Image</label>
                             <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
-                            <p class="text-primary">Note: Aspect Ratio of Image must be 1:1</p>
+                            <p class="text-primary">Note: Aspect Ratio of Image must be 1:1 (example: 150px  * 150px)</p>
                             @if($errors->has('thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('thumbnail')}}

@@ -37,6 +37,9 @@ Route::group(['middleware'=>'auth'], function(){
     //Feedback From Clients
     Route::resource('feedbacks', 'TestimonialController');
 
+    Route::get('newsletters', 'NewsletterController@index');
+    Route::DELETE('newsletters/{newsletter}', 'NewsletterController@destroy')->name('newsletters.destroy');
+
 
 
 
@@ -50,3 +53,6 @@ Auth::routes();
 Route::get('/', 'MainPageController@index');
 Route::get('contact', 'ContactController@create');
 Route::post('contact', 'ContactController@store')->name('message.send');
+Route::post('newsletters/send', 'NewsletterController@store');
+//blog
+Route::get('blog', 'BlogController@allBlog');

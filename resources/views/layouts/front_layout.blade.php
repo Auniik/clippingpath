@@ -75,29 +75,9 @@
                                         <li><a href="#">Ad Layout Design</a></li>
                                     </ul>
                                 </li>
-
-                                {{--<li><a href="#">Services +</a>--}}
-                                {{--<ul class="sub-menu">--}}
-                                {{--<li><a href="clipping-path.html">Clipping Path</a></li>--}}
-                                {{--<li><a href="photoshop-masking.html">Masking</a></li>--}}
-                                {{--<li><a href="color-masking.html">Color Masking</a></li>--}}
-                                {{--<li><a href="photo-retouch.html">Retouching</a></li>--}}
-                                {{--<li><a href="old-photo-restoration.html">Old Photo restoration</a></li>--}}
-                                {{--<li><a href="neck-join.html">Neck Join</a></li>--}}
-                                {{--<li><a href="mannequin-removal.html">Invisible man</a></li>--}}
-                                {{--<li><a href="shadow-creation.html">Shadow Creation</a></li>--}}
-                                {{--<li><a href="reflection-creation.html">Reflation creation</a></li>--}}
-                                {{--<li><a href="cropping-resize.html">Cropping &amp; Resize</a></li>--}}
-                                {{--<li><a href="web-image-optimization.html">Web image optimization</a></li>--}}
-                                {{--<li><a href="logo-and-identity-design.html">Logo and identity design</a></li>--}}
-                                {{--<li><a href="ui-design.html">UI Design</a></li>--}}
-                                {{--</ul>--}}
-                                {{--</li>--}}
-                                {{--<li><a href="price.html">Price</a></li>--}}
-                                {{--<li><a href="howitworks.html">How It works</a></li>--}}
-                                <li><a href="contact.html">Portfolio</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{url('portfolio')}}">Portfolio</a></li>
+                                <li><a href="{{url('blog')}}">Blog</a></li>
+                                <li><a href="{{url('contact')}}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -114,10 +94,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="news-latter-area">
-                    <form action="" method="post" target="_blank">
+                    <form action="{{url('newsletters/send')}}" method="post">
+                        @csrf
                         <ul>
                             <li><p>Subscribe for Coupon Code</p></li>
-                            <li><input type="email" name="EMAIL" placeholder="Submit Your Mail" /></li>
+                            <li><input type="email" name="email" placeholder="Submit Your Mail" /></li>
                             <li><input type="submit" value="Subscribe" /></li>
                         </ul>
                     </form>
