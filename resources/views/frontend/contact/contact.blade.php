@@ -81,7 +81,7 @@
                                         </li>
                                     </ul>
                                     <div class="map">
-                                        {{$contactInfo->google_maps}}
+                                        <iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=" {{$contactInfo->google_maps}}"></iframe>
                                     </div>
                                 </div>
                             </div>

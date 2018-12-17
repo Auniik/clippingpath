@@ -17,11 +17,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-//        View::composer('frontend.', function ($view) {
-//
-//            $config=SiteConfiguration::first();
-//            $view->with('config', $config);
-//        });
+        View::composer('layouts.front_layout', function ($view) {
+
+            $config=SiteConfiguration::first();
+            $view->with('config', $config);
+        });
     }
 
     /**

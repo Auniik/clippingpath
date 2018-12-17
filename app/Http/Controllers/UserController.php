@@ -92,7 +92,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return redirect('users')->withMessage('User Information Updates');
+        return redirect('users')->withMessage('User Information Updated');
     }
 
     /**

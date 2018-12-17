@@ -1,11 +1,6 @@
 @extends('layouts.front_layout')
 @section('title', 'Home | Clipping Path')
 @section('content')
-    <?php
-
-        $portfolios=\App\Portfolio::where('status',1)->take(3)->get();
-
-    ?>
     <div class="main-body">
         <div class="main-wrapper slider-area">
             <!--LayerSlider begin-->
@@ -57,19 +52,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="slider-items-list">
-                        <li><a href="clipping-path.html">Clipping Path</a></li>
-                        <li><a href="photoshop-masking.html">Image Masking</a></li>
-                        <li><a href="photo-retouch.html">Image Retouch</a></li>
-                        <li><a href="logo-and-identity-design.html">Logo &amp; Identity</a></li>
+                        @foreach($socials as $social)
+                            @if(substr($social->profile_link,0,3)=='http')
+                                <li><a href="{{$social->profile_link}}"><i class="{{$social->icon}}" aria-hidden="true"></i></a></li>
+                            @else
+                                <li><a href="http://{{$social->profile_link}}"><i class="{{$social->icon}}"></i></a></li>
+                            @endif
+
+                        @endforeach
                     </ul>
                     <div class="contact-area">
                         <span class="lan">
                         <a href="callto:+1(484) 273-2547" class="lan"><i class="mobile-number"></i>+1(484) 273-2547</a>
-                            <a href="callto:clippingpath" class="lan"><i class="icon-skype"></i> Skype</a>
-                            <!-- <ul class="lan_list">
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Arabic</a></li>
-                            </ul> -->
                         </span> &nbsp;&nbsp;&nbsp;
                         <a href="mailto:info@clippingpath.com" class="email"><i class="icon-envelope-alt"></i> info@clippingpath.com</a>
                     </div>
@@ -89,8 +83,8 @@
                 <div class="col-md-12 c-p-feature">
                     <div class="row">
                         @foreach ($features as $feature)
-                            <div class="col-md-4 col-sm-4 item-style" style="background-image:url({{$feature->thumbnail}})">
-                                <h2>{{$feature->title}}</h2>
+                            <div class="col-lg-4 col-md-6 col-sm-6 item-style" style="background-image:url({{$feature->thumbnail}})">
+                                <h2>{{$feature->headline}}</h2>
                                 <p>{!!$feature->description!!}</p>
                             </div>
                         @endforeach
@@ -106,7 +100,7 @@
                 {{--portfolio--}}
                     <div id="container" class="row p-items portfolio-section-box clearfix">
                         @foreach ($portfolios as $portfolio)
-                            <a href="">
+                            <a href="{{route('work.show', $portfolio)}}">
                                 <div class="col-md-4 col-sm-6 col-xs-12 p-single-item element">
                                     <img src="{{url($portfolio->before_thumbnail)}}" alt="clipping-path" />
                                     <hr>

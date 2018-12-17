@@ -78,8 +78,9 @@
         {{--Pages--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bars"></i><span class="app-menu__label">Menus</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'pages/create' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Add Page</a></li>
-                <li><a class="treeview-item {{ $url  == 'pages' ? 'active' : '' }}" href=""><i class="icon fa fa-circle-o"></i> Manage Page</a></li>
+                <li><a class="treeview-item {{ $url  == 'menus' ? 'active' : '' }}" href="{{url('menus')}}"><i class="icon fa fa-circle-o"></i> Manage Menu</a></li>
+                <li><a class="treeview-item {{ $url  == 'pages/create' ? 'active' : '' }}" href="{{url('pages/create')}}"><i class="icon fa fa-circle-o"></i> Add Page</a></li>
+                <li><a class="treeview-item {{ $url  == 'pages' ? 'active' : '' }}" href="{{url('pages')}}"><i class="icon fa fa-circle-o"></i> Manage Page</a></li>
             </ul>
         </li>
         {{--BLOGS--}}
@@ -121,6 +122,10 @@
             </ul>
         </li>
 
+        {{--SOCIAL MANAGEMENT--}}
+        <li>
+            <a class="app-menu__item" href="{{url('socials')}}"><i class="app-menu__icon fa fa-connectdevelop"></i><span class="app-menu__label">Social Management</span></a>
+        </li>
         {{--CONTACT PAGE--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-envelope
 "></i><span class="app-menu__label">Contacts</span><i class="treeview-indicator fa fa-angle-right"></i></a>

@@ -30,12 +30,19 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('sliders/save', 'SliderController@save');
     //Features Management
     Route::resource('features', 'FeatureController');
+
+    Route::resource('menus', 'MenuController');
     //Blog Management
     Route::resource('blogs', 'BlogController');
+
+    Route::resource('pages', 'PageController');
     //Portfolio
     Route::resource('portfolio-items', 'PortfolioController');
     //Feedback From Clients
     Route::resource('feedbacks', 'TestimonialController');
+
+    //Social
+    Route::resource('socials', 'SocialController');
 
     Route::get('newsletters', 'NewsletterController@index');
     Route::DELETE('newsletters/{newsletter}', 'NewsletterController@destroy')->name('newsletters.destroy');
@@ -56,3 +63,6 @@ Route::post('contact', 'ContactController@store')->name('message.send');
 Route::post('newsletters/send', 'NewsletterController@store');
 //blog
 Route::get('blog', 'BlogController@allBlog');
+Route::get('article/{blog}', 'BlogController@article')->name('article.show');
+Route::get('portfolio', 'PortfolioController@portfolio')->name('portfolio');
+Route::get('work/{portfolio_item}', 'PortfolioController@portfolioItem')->name('work.show');

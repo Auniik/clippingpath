@@ -16,6 +16,10 @@ class BlogController extends Controller
         return view('frontend.blog.blogs', compact('blogs'));
 
     }
+    public function article(Blog $blog){
+//        dd($blog);
+        return view('frontend.blog.article', compact('blog'));
+    }
     /**
      * Display a listing of the resource.
      *

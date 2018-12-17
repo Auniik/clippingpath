@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
+
+    //frontend
+    public function portfolio(){
+        $items=Portfolio::orderBy('created_at', 'desc')->paginate(8);
+        return view('frontend.portfolio.portfolio', compact('items'));
+    }
+    public function portfolioItem(Portfolio $portfolio_item){
+        return view('frontend.portfolio.item', compact('portfolio_item'));
+    }
     /**
      * Display a listing of the resource.
      *

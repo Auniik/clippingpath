@@ -17,8 +17,7 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/animate.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
-
-    <link rel="canonical" href="index.html"/>
+    <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
     <script type="text/javascript">
       var base_url = 'index.html';
@@ -149,32 +148,7 @@
                           </ul>
                 </div>
                 <div class="col-md-3 box quick-links footer-social-area">
-                    <ul>
-                        <li>
-                            <img class="left" src="{{asset('frontend/images/social/fb.png')}}" alt="facebook-link">
-                            <div class="link-text">
-                                <a rel="nofollow" target="_blank" href="">Like us on Facebook</a>
-                            </div>
-                        </li>
-                        <li>
-                            <img class="left" src="{{asset('frontend/images/social/tw.png')}}" alt="twitter-link">
-                            <div class="link-text">
-                                    <a rel="nofollow" target="_blank" href="">Follow us on Twitter</a>
-                            </div>
-                        </li>
-                        <li>
-                            <img class="left" src="{{asset('frontend/images/social/ln.png')}}" alt="linkedin-link">
-                            <div class="link-text">
-                                <a rel="nofollow" target="_blank" href="">Follow us on LinkedIn</a>
-                            </div>
-                        </li>
-                        <li>
-                            <img class="left" src="{{asset('frontend/images/social/gp.png')}}" alt="googleplus-link">
-                            <div class="link-text">
-                                <a rel="nofollow" target="_blank" href="#">Add us on Google</a>
-                            </div>
-                        </li>
-                    </ul>
+
                 </div>
 
             </div>
@@ -184,7 +158,7 @@
             <div class="row payment">
                       <div class="col-md-5">
                                 <div class="copyright-area">
-                                          <p>&copy; 2018. All rights reserved <a href="index.html">Clipping Path</a></p>
+                                          <p>&copy; {{date('Y')}}. All rights reserved <a href="{{url('/')}}"> {{$config->company_name}}</a></p>
                                 </div>
                       </div>
                       <div class="col-md-7">
