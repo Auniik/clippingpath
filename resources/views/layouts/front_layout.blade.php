@@ -18,18 +18,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/animate.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
-    <script type="text/javascript">
-      var base_url = 'index.html';
-    </script>
-
-
 </head>
 
 <body>
 <header id="header">
     <div class="sub-area">
-
         <div class="main-wrapper head-area">
             <div class="container-fluid">
                 <div class="row">
@@ -86,6 +79,7 @@
         <div id="back-to-top"></div>
     </div>
 </header>
+
     @yield('content')
 
 <div class="main-wrapper">
@@ -140,11 +134,10 @@
                 <div class="col-md-6 box from-blog">
                     <h4 class="footer-title">From Blog</h4>
                           <ul>
-                              <li><a href="blog/indexfded.html?p=539"><p class="blog-title">New Year Greetings from Clipping Path</p></a></li>
-                              <li><a href="blog/index5ff4.html?p=535"><p class="blog-title">Techniques Need to Use for Isolating Objects from Images</p></a></li>
-                              <li><a href="blog/indexde52.html?p=530"><p class="blog-title">How to Transfer Clipping Path from One Image to Another</p></a></li>
-                              <li><a href="blog/index7dad.html?p=524"><p class="blog-title">What is Clipping Path and How to Make Clipping Path Manually</p></a></li>
-                              <li><a href="blog/indexcc08.html?p=519"><p class="blog-title">Great Tips to Preserve Photos for Years!</p></a></li>
+                              @foreach($blogs as $blog)
+                                  <li><a href="{{route('article.show', $blog)}}"><p class="blog-title">{{$blog->headline}}</p></a></li>
+                              @endforeach
+
                           </ul>
                 </div>
                 <div class="col-md-3 box quick-links footer-social-area">
@@ -158,7 +151,7 @@
             <div class="row payment">
                       <div class="col-md-5">
                                 <div class="copyright-area">
-                                          <p>&copy; {{date('Y')}}. All rights reserved <a href="{{url('/')}}"> {{$config->company_name}}</a></p>
+                                          <p>&copy; {{date('Y')}}. All rights reserved <a href="{{url('/')}}"> {{$config==null ? 'Company Name here' : $config->company_name}}</a></p>
                                 </div>
                       </div>
                       <div class="col-md-7">

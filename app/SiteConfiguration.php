@@ -9,6 +9,7 @@ class SiteConfiguration extends Model
     protected $fillable = [
             'website_name',
             'website_email',
+            'website_phone',
             'message',
             'company_name',
             'licence_number',

@@ -49,9 +49,18 @@
                             </div>
                         @endif
                     </div>
+                        <div class="form-group">
+                            <label for="websitePhone">Website Phone</label>
+                            <input class="form-control @if($errors->has('website_phone')) is-invalid @endif" value="{{old('website_phone')}}"  name="website_phone" id="websitePhone" type="text" placeholder="Enter website name">
+                            @if($errors->has('website_phone'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('website_phone')}}
+                                </div>
+                            @endif
+                        </div>
                     <div class="form-group">
                         <label for="exampleTextarea">Branding Message</label>
-                        <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" id="exampleTextarea" rows="2" placeholder="Enter a message that brand your website">{{old('message')}}</textarea>
+                        <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" id="exampleTextarea" rows="3" placeholder="Enter a message that brand your website">{{old('message')}}</textarea>
                         @if($errors->has('message'))
                             <div class="invalid-feedback">
                                 {{$errors->first('message')}}

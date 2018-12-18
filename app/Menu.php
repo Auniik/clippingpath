@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     protected $fillable =[
-        'menu', 'status',
+        'name', 'slug', 'serial',  'status',
     ];
+
+    public function pages()
+    {
+            return $this->hasMany(Page::class);
+    }
 }

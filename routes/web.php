@@ -63,6 +63,7 @@ Route::post('contact', 'ContactController@store')->name('message.send');
 Route::post('newsletters/send', 'NewsletterController@store');
 //blog
 Route::get('blog', 'BlogController@allBlog');
+Route::get('features/{feature}', 'FeatureController@feature')->name('feature.show');
 Route::get('article/{blog}', 'BlogController@article')->name('article.show');
 Route::get('portfolio', 'PortfolioController@portfolio')->name('portfolio');
 Route::get('work/{portfolio_item}', 'PortfolioController@portfolioItem')->name('work.show');

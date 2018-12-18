@@ -15,15 +15,17 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('submenu_name');
-            $table->string('slug');
-            $table->text('before_thumbnail');
-            $table->text('after_thumbnail');
+            $table->unsignedInteger('menu_id');
+            $table->string('name');
+            $table->string('slug')->index();
+            $table->text('before_thumbnail')->nullable(true);
+            $table->text('after_thumbnail')->nullable(true);
             $table->string('title');
             $table->text('description');
             $table->tinyInteger('status');
-            $table->integer('menu_id');
             $table->timestamps();
+
+            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
         });
     }
 

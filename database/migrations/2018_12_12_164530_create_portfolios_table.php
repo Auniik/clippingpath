@@ -15,8 +15,8 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('before_thumbnail');
-            $table->text('after_thumbnail');
+            $table->text('before_thumbnail')->nullable(true);
+            $table->text('after_thumbnail')->nullable(true);
             $table->string('title');
             $table->text('description');
             $table->tinyInteger('status');

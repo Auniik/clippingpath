@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\Menu;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,8 +15,10 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages=Page::orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.menu.pages', compact('pages'));
+
+
+        $pages=Page::with('menu')->orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.menu.pages', compact('pages', 'menus'));
     }
 
     /**
@@ -25,7 +28,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('backend.menu.add_page');
+        $menus=Menu::where('status',1)->get();
+        return view('backend.menu.add_page',  compact('menus'));
     }
 
     /**
@@ -38,7 +42,7 @@ class PageController extends Controller
     {
         $request->validate([
             'menu_id' => 'required',
-            'submenu_name' => 'required|max:30',
+            'name' => 'required|max:30',
             'slug' => 'required|unique:pages',
             'title' => 'required',
             'description' => 'required',
@@ -47,7 +51,7 @@ class PageController extends Controller
         ]);
         $data = [
             'menu_id' => $request->menu_id,
-            'submenu_name' => $request->submenu_name,
+            'name' => $request->name,
             'slug' => $request->slug,
             'title' => $request->title,
             'description' => $request->description,
@@ -83,7 +87,8 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        $menus=Menu::where('status',1)->get();
+        return view('backend.menu.edit_page', compact('page', 'menus'));
     }
 
     /**

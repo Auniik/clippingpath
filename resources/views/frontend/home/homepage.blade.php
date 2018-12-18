@@ -74,7 +74,7 @@
     <div class="main-wrapper portfolio-area">
         <div class="container">
             <div class="c-p-family">
-                <h1>{{$config->message}}</h1>
+                <h1>{{$config==null ? 'Your Message here' :  $config->message}}</h1>
                 <p>If you need bulk image editing service with great quality, reliability and fast turnaround time!!</p>
             </div>
 
@@ -84,8 +84,8 @@
                     <div class="row">
                         @foreach ($features as $feature)
                             <div class="col-lg-4 col-md-6 col-sm-6 item-style" style="background-image:url({{$feature->thumbnail}})">
-                                <h2>{{$feature->headline}}</h2>
-                                <p>{!!$feature->description!!}</p>
+                                <a href="{{route('feature.show', $feature)}}"><h2>{{$feature->headline}}</h2></a>
+                                <p>{!! substr($feature->description, 0, 160)!!}...</p>
                             </div>
                         @endforeach
                     </div>

@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Storage;
 
 class FeatureController extends Controller
 {
+    //frontend
+    public function feature(Feature $feature){
+        return view('frontend.features.article', compact('feature'));
+    }
     /**
      * Display a listing of the resource.
      *

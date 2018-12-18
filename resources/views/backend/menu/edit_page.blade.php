@@ -1,10 +1,10 @@
 @extends('layouts.admin_layout')
-@section('title', 'Add Page for Navigation Menu')
+@section('title', 'Edit Page for Navigation Menu')
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-briefcase"></i> Add Page</h1>
-            <p>Add page for navigation menu</p>
+            <h1><i class="fa fa-briefcase"></i> Edit Page</h1>
+            <p>Edit page for navigation menu</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -20,15 +20,14 @@
                   </div>';
         Session::put('message',null);
     }
-
     ?>
 
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title col-lg-8 offset-lg-2">Add Page</h3><hr>
+                <h3 class="tile-title col-lg-8 offset-lg-2">Edit Page</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
-                    <form action="{{url('pages')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('pages.update', $page)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Menu</label>
@@ -54,7 +53,21 @@
                             @endif
                         </div>
 
-
+                        <div class="form-group">
+                            <label class="control-label">Slug</label>
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount">Enter  a unique slug</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">http://clippingpath.com/</span></div>
+                                    <input name="slug" value="{{old('slug')}}" class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" placeholder="clipping-path">
+                                    @if($errors->has('slug'))
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('slug')}}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                         <hr><br><br>
 
                         <div class="form-group">

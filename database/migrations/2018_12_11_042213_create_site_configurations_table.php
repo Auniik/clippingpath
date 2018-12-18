@@ -17,6 +17,7 @@ class CreateSiteConfigurationsTable extends Migration
             $table->increments('id');
             $table->string('website_name',255);
             $table->string('website_email',255);
+            $table->string('website_phone',255);
             $table->text('message');
             $table->string('company_name', 255);
             $table->string('licence_number', 255);

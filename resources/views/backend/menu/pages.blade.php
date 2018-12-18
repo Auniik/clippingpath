@@ -32,7 +32,7 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Menu ID</th>
+                        <th>Parent Menu</th>
                         <th>Page Name</th>
                         <th>Slug</th>
                         <th>Status</th>
@@ -44,8 +44,8 @@
                     @foreach($pages as $key => $page)
                         <tr>
                             <td>{{$sl++}}</td>
-                            <td>{{$page->menu_id}}</td>
-                            <td>{{$page->submenu_name}}</td>
+                            <td>{{$page->menu->menu}}</td>
+                            <td>{{$page->name}}</td>
                             <td>{{$page->slug}}</td>
                             @if($page->status==1)
                                 <td>

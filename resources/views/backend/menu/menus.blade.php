@@ -20,6 +20,7 @@
                   </div>';
         Session::put('message',null);
     }
+
     ?>
 
     <div class="row">
@@ -31,10 +32,34 @@
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Menu Name</label>
-                            <input name="menu" class="form-control @if($errors->has('menu')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
-                            @if($errors->has('menu'))
+                            <input name="name" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
+                            @if($errors->has('name'))
                                 <div class="invalid-feedback">
-                                    {{$errors->first('menu')}}
+                                    {{$errors->first('name')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Slug</label>
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount">Enter  a unique slug</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><?php echo url('/') ?>/</span></div>
+                                    <input name="slug"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" value="#" >
+                                    @if($errors->has('slug'))
+                                        <div class="invalid-feedback">
+                                            {{$errors->first('slug')}}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Serial</label>
+                            <input name="serial" value="{{$data==null ? '1' : $data->serial+1}}" min="0" class="form-control @if($errors->has('serial')) is-invalid @endif" type="number">
+                            @if($errors->has('serial'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('serial')}}
                                 </div>
                             @endif
                         </div>
@@ -77,7 +102,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Menu Name</th>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Serial</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -87,7 +114,9 @@
                         @foreach($menus as $key => $menu)
                             <tr>
                                 <td>{{$sl++}}</td>
-                                <td>{{$menu->menu}}</td>
+                                <td>{{$menu->name}}</td>
+                                <td><a href="{{url('/')}}/{{$menu->slug}}">{{url('/')}}/{{$menu->slug}}</a></td>
+                                <td>{{$menu->serial}}</td>
                                 @if($menu->status==1)
                                     <td>
                                         <span class="badge badge-success">Active</span>

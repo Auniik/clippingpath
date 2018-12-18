@@ -23,6 +23,7 @@ class SiteConfigurationController extends Controller
         $request->validate([
             'website_name' => 'required|max:255',
             'website_email' => 'required|email|max:255',
+            'website_phone' => 'required',
             'message' => 'required',
             'company_name' => 'required|max:255',
             'licence_number' => 'required|max:255',
@@ -36,6 +37,7 @@ class SiteConfigurationController extends Controller
         SiteConfiguration::create([
             'website_name' => $request->website_name,
             'website_email' => $request->website_email,
+            'website_phone' => $request->website_phone,
             'message' => $request->message,
             'company_name' => $request->company_name,
             'licence_number' => $request->licence_number,
@@ -57,6 +59,7 @@ class SiteConfigurationController extends Controller
         $request->validate([
             'website_name' => 'required|max:255',
             'website_email' => 'required|email|max:255',
+            'website_phone' => 'required',
             'message' => 'required',
             'company_name' => 'required|max:255',
             'licence_number' => 'required|max:255',
@@ -71,6 +74,7 @@ class SiteConfigurationController extends Controller
         $config->update([
             'website_name' => $request->website_name,
             'website_email' => $request->website_email,
+            'website_phone' => $request->website_phone,
             'message' => $request->message,
             'company_name' => $request->company_name,
             'licence_number' => $request->licence_number,

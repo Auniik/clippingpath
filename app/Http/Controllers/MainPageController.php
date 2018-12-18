@@ -17,7 +17,7 @@ class MainPageController extends Controller
         $socials=Social::where('status',1)->orderBy('created_at', 'asc')->get();
         $features=Feature::where('status',1)->orderBy('created_at', 'desc')->paginate(6);
         $feedbacks = Testimonial::where('status',1)->orderBy('created_at', 'desc')->paginate(5);
-        $portfolios=\App\Portfolio::where('status',1)->take(3)->get();
+        $portfolios=Portfolio::where('status',1)->take(3)->get();
         //Slider
         $bulk_sliders=Slider::whereNull('background_thumbnail')->get();
         $cover_sliders=Slider::whereNull('thumbnail_wide')->get();

@@ -14,8 +14,9 @@ class MenuController extends Controller
      */
     public function index()
     {
+        $data = Menu::latest()->first();
         $menus=Menu::orderBy('created_at', 'desc')->paginate(5);
-        return view('backend.menu.menus', compact('menus'));
+        return view('backend.menu.menus', compact('menus', 'data'));
     }
 
     /**
@@ -37,12 +38,12 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'menu' => 'required|unique:menus',
+            'name' => 'required|unique:menus',
+            'slug' => 'required|unique:menus',
+            'serial' => 'required',
         ]);
-        Menu::create([
-            'menu' => $request->menu,
-            'status' => $request->status,
-        ]);
+        $input = $request->all();
+        Menu::create($input);
         return redirect('menus')->withMessage('Menu Added Successfully');
     }
 

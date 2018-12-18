@@ -31,12 +31,12 @@
                                                 @if($errors->has('name'))  <p class="text-danger">{{$errors->first('email')}}</p>  @endif
                                             </li>
                                             <li class="phone">
-                                                <span><i class="icon-phone"></i></span>
+                                                <span><i class="fa fa-phone" aria-hidden="true"></i></span>
                                                 <input type="text" @if($errors->has('phone')) class="invalid-block"  @endif name="phone" placeholder="Your Phone" />
                                                 @if($errors->has('name'))  <p class="text-danger">{{$errors->first('phone')}}</p>  @endif
                                             </li>
                                             <li class="country">
-                                                <span><i class="icon-globe"></i></span>
+                                                <span><i class="fa fa-globe" aria-hidden="true"></i></span>
                                                 <input type="text" @if($errors->has('country')) class="invalid-block"  @endif name="country" placeholder="Your Country" />
                                                 @if($errors->has('name'))  <p class="text-danger">{{$errors->first('country')}}</p>  @endif
                                             </li>
@@ -60,16 +60,16 @@
                                     <h3>Office Locations</h3>
                                     <ul class="location-list row">
                                         <li class="col-md-2">
-                                            <p class="location-name">{{$contactInfo->location_one}}</p>
-                                            <p>{{$contactInfo->address_one}}</p>
+                                            <p class="location-name">{{$contactInfo==null ? 'Location name here.' : $contactInfo->location_one}}</p>
+                                            <p>{{$contactInfo==null ? 'Address here' : $contactInfo->address_one}}</p>
                                         </li>
                                         <li class="col-md-2">
-                                            <p class="location-name">{{$contactInfo->location_two}}</p>
-                                            <p>{{$contactInfo->address_two}}</p>
+                                            <p class="location-name">{{$contactInfo==null ? 'Location 2 name here.' : $contactInfo->location_two}}</p>
+                                            <p>{{$contactInfo==null ? 'Address here' : $contactInfo->address_two}}</p>
                                         </li>
                                         <li class="col-md-2">
-                                            <p class="location-name">{{$contactInfo->location_three}}</p>
-                                            <p>{{$contactInfo->address_three}}</p>
+                                            <p class="location-name">{{$contactInfo==null ? 'Location 3 name here.' : $contactInfo->location_three}}</p>
+                                            <p>{{$contactInfo==null ? 'Address here' : $contactInfo->address_three}}</p>
                                         </li>
                                     </ul>
                                     <ul class="contact-list">
@@ -81,7 +81,7 @@
                                         </li>
                                     </ul>
                                     <div class="map">
-                                        <iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=" {{$contactInfo->google_maps}}"></iframe>
+                                        <iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=" {{$contactInfo==null ? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27804084.12672812!2d120.26698394364534!3d31.714440679464374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34674e0fd77f192f%3A0xf54275d47c665244!2z4Kac4Ka-4Kaq4Ka-4Kao!5e0!3m2!1sbn!2sbd!4v1545118969451' : $contactInfo->google_maps}}"></iframe>
                                     </div>
                                 </div>
                             </div>

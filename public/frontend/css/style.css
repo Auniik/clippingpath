@@ -2,19 +2,19 @@
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 300;
-	src: local('Open Sans Light'), local('OpenSans-Light'), url(../font/opensans-light.woff) format('woff');
+	src: local('Open Sans Light'), local('OpenSans-Light'), url(../fonts/opensans-light.woff) format('woff');
   }
   @font-face {
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Open Sans'), local('OpenSans'), url(../font/opensans.woff) format('woff');
+	src: local('Open Sans'), local('OpenSans'), url(../fonts/opensans.woff) format('woff');
   }
   @font-face {
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 600;
-	src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(../font/opensans-semibold.woff) format('woff');
+	src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(../fonts/opensans-semibold.woff) format('woff');
   }
   
   /* Common    */
@@ -2511,7 +2511,7 @@ ul.contact-form li .invalid-block{
   ul.contact-form li span i {
   font-size: 20px;
   padding: 11px;
-  line-height: 40px;
+  /*line-height: 40px;*/
   }
   
   ul.contact-form li.name {}

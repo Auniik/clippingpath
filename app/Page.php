@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+
     protected $fillable =[
-        'submenu_name',
+        'name',
         'slug',
         'before_thumbnail',
         'after_thumbnail',
@@ -16,4 +17,9 @@ class Page extends Model
         'status',
         'menu_id',
     ];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }

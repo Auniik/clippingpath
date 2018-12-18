@@ -50,6 +50,15 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <label for="websitePhone">Website Phone</label>
+                            <input class="form-control @if($errors->has('website_phone')) is-invalid @endif" value="{{old('website_phone')}}"  name="website_phone" id="websitePhone" type="text" placeholder="Enter website name">
+                            @if($errors->has('website_phone'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('website_phone')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label for="exampleTextarea">Branding Message</label>
                             <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" id="exampleTextarea" rows="2" placeholder="Enter a message that brand your website">{{$configRecord->message}}</textarea>
                             @if($errors->has('message'))
@@ -60,7 +69,9 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Website Logo</label>
+                            <img class="img-fluid" src="{{url($configRecord->logo)}}" alt="">
                             <input class="form-control @if($errors->has('logo')) is-invalid @endif" name="logo" type="file" >
+
                             @if($errors->has('logo'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('logo')}}
@@ -68,8 +79,12 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Favicon</label>
+                            <hr>
+                            <label class="control-label">Favicon </label>
+
+                            <img class="img-fluid offset-lg-1" src="{{url($configRecord->favicon)}}" alt="">
                             <input class="form-control @if($errors->has('favicon')) is-invalid @endif" name="favicon"  type="file">
+
                             @if($errors->has('favicon'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('favicon')}}
