@@ -32,6 +32,10 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('features', 'FeatureController');
 
     Route::resource('menus', 'MenuController');
+    //Submenu management
+    Route::resource('submenus', 'SubmenuController');
+    Route::get('submenus/{id}/create', 'SubmenuController@create')->name('submenus.create');
+    Route::get('submenus/{submenu}/edit', 'SubmenuController@edit')->name('submenus.edit');
     //Blog Management
     Route::resource('blogs', 'BlogController');
 

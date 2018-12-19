@@ -10,8 +10,8 @@ class Menu extends Model
         'name', 'slug', 'serial',  'status',
     ];
 
-    public function pages()
+    public function submenus()
     {
-            return $this->hasMany(Page::class);
+            return $this->hasMany(Submenu::class);
     }
 }

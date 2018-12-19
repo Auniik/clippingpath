@@ -15,7 +15,8 @@ class MenuController extends Controller
     public function index()
     {
         $data = Menu::latest()->first();
-        $menus=Menu::orderBy('created_at', 'desc')->paginate(5);
+        $menus=Menu::orderBy('created_at', 'asc')->paginate(5);
+
         return view('backend.menu.menus', compact('menus', 'data'));
     }
 
@@ -39,7 +40,8 @@ class MenuController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:menus',
-            'slug' => 'required|unique:menus',
+            'slug' => 'required',
+//            'slug' => 'required|unique:menus',
             'serial' => 'required',
         ]);
         $input = $request->all();
@@ -66,7 +68,8 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        return view('backend.menu.edit_menu', compact('menu'));
+        $data = Menu::latest()->first();
+        return view('backend.menu.edit_menu', compact('menu', 'data'));
     }
 
     /**
@@ -79,12 +82,12 @@ class MenuController extends Controller
     public function update(Request $request, Menu $menu)
     {
         $request->validate([
-            'menu' => 'required',
+            'name' => 'required|unique:menus,slug,'.$menu->id,
+            'slug' => 'required',
+            'serial' => 'required',
         ]);
-        $menu->update([
-            'menu' => $request->menu,
-            'status' => $request->status,
-        ]);
+        $input =  $request->all();
+        $menu->update($input);
         return redirect('menus')->withMessage('Menu Information Updated');
     }
 

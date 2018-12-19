@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title col-lg-8 offset-lg-2">Add Menu</h3><hr>
+                <h3 class="tile-title col-lg-8 offset-lg-2">Edit Menu</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
                     <form action="{{route('menus.update', $menu)}}" method="post">
                         @method('patch')
