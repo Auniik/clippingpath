@@ -68,6 +68,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
+//        dd($menu);
         $data = Menu::latest()->first();
         return view('backend.menu.edit_menu', compact('menu', 'data'));
     }
@@ -82,8 +83,8 @@ class MenuController extends Controller
     public function update(Request $request, Menu $menu)
     {
         $request->validate([
-            'name' => 'required|unique:menus,slug,'.$menu->id,
-            'slug' => 'required',
+            'name' => 'required',
+            'slug' => 'required|unique:menus,slug,'.$menu->id,
             'serial' => 'required',
         ]);
         $input =  $request->all();

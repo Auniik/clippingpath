@@ -10,14 +10,14 @@
                 <!--LayerSlider layer-->
                 <div class="ls-layer">
                     <div id="layer-01-bg" class="ls-bg" style=""></div>
-                        <div id="layer-01-bg-02" class="ls-s6" style="background:{{$slider->background_color}};" data-rel="delayin: 500; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
+                        <div id="layer-01-bg-02" class="ls-s6" style="background:{{$slider->background_color}};" data-rel="delayin: 300; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
                 <div id="layer-01-slide-01" class="ls-s6" style="" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1500;">
                     <p>{{$slider->thumbnail_square_title}}</p>
-                    <img src="{{$slider->thumbnail_square}}" alt="home-slider-01">
+                    <img  src="{{$slider->thumbnail_square}}" style="box-shadow: -16px 15px 24px -21px black;" alt="home-slider-01">
                 </div>
 
                 <div id="layer-01-slide-02" class="ls-s4" style="" data-rel="delayin: 100; slidedirection: bottom; slideoutdirection: bottom; durationin: 2000;">
-                    <img src="{{$slider->thumbnail_wide}}" alt="home-slider-02">
+                    <img src="{{$slider->thumbnail_wide}}" style="box-shadow: -16px 15px 24px -21px black" alt="home-slider-02">
                     <p>{{$slider->thumbnail_wide_title}}</p>
                 </div>
 
@@ -34,7 +34,7 @@
             <div class="ls-layer">
                 <div id="layer-02-bg" class="ls-bg" style=""></div>
 
-                <img id="layer-02-slide-01" class="ls-s6" src="{{$slider->background_thumbnail}}"  data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 2000;" alt="home-slider-02-01">
+                <img id="layer-02-slide-01" class="ls-s6" src="{{$slider->background_thumbnail}}"  data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1000;" alt="home-slider-02-01">
 
                 <div id="layer-02-slide-02" class="ls-s2" style="" data-rel="delayin: 100; slidedirection: left; slideoutdirection: bottom; durationin: 1500;">
                     <p>{!!$slider->background_text!!}</p>
@@ -85,7 +85,7 @@
                         @foreach ($features as $feature)
                             <div class="col-lg-4 col-md-6 col-sm-6 item-style" style="background-image:url({{$feature->thumbnail}})">
                                 <a href="{{route('feature.show', $feature)}}"><h2>{{$feature->headline}}</h2></a>
-                                <p>{!! substr($feature->description, 0, 160)!!}...</p>
+                                <p>{!! str_limit($feature->description, 100)!!}</p>
                             </div>
                         @endforeach
                     </div>

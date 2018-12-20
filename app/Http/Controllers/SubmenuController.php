@@ -22,15 +22,15 @@ class SubmenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create($menu_id)
     {
-        //serial
+        //Serial
         $data = Submenu::latest()->first();
         //Relation with menu to pass menu_id from Menu model
-        $id = $request->id;
-        $menu=Menu::where('id', $id)->first();
-        //Get Submenu for view
-        $submenus = Submenu::where('menu_id', $menu->id)->orderBy('created_at', 'desc')->paginate(10);
+        $menu=Menu::find($menu_id);
+
+        //Get Submenu for List view
+        $submenus = Submenu::where('menu_id', $menu_id)->orderBy('created_at', 'asc')->paginate(10);
 
         return view('backend.menu.submenus', compact('submenus','menu', 'data'));
     }
@@ -74,7 +74,7 @@ class SubmenuController extends Controller
     {
         //Get Submenu for view
         $submenus = Submenu::find($id);
-        return view('backend.menu.edit_submenu', compact('submenus','menu'));
+        return view('backend.menu.edit_submenu', compact('submenus'));
     }
 
     /**
@@ -86,7 +86,14 @@ class SubmenuController extends Controller
      */
     public function update(Request $request, Submenu $submenu)
     {
-        //
+        $request->validate([
+            'menu_id' => 'required',
+            'name' => 'required|max:25',
+            'slug' => 'required|unique:submenus,slug,'.$submenu->id,
+        ]);
+        $input = $request->all();
+        $submenu->update($input);
+        return redirect('menus')->withMessage('Submenu updated successfully');
     }
 
     /**
@@ -97,6 +104,7 @@ class SubmenuController extends Controller
      */
     public function destroy(Submenu $submenu)
     {
-        //
+        $submenu->delete();
+        return redirect('menus')->withMessage('Submenu Deleted');
     }
 }

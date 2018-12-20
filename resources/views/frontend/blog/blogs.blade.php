@@ -19,14 +19,14 @@
                                         <h2><a href="{{route('article.show', $blog)}}">{{$blog->headline}}</a></h2>
                                         <ul class="blog-post-info">
                                             <li class="time">
-                                                <p>{{$blog->created_at}}</p>
+                                                <p>{{$blog->created_at->toFormattedDateString()}}</p>
                                             </li>
                                         </ul>
 
                                         <div class="post-content">
                                             <img width="300" height="211" src="{{url($blog->thumbnail)}}" class="attachment-medium wp-post-image" alt="happy new year 2015" />
                                             <p class="excerpt">
-                                            <p>{!! $blog->description !!} <a class="read-more" href="{{route('article.show', $blog)}}">Read More</a></p>
+                                            <p>{!! str_limit($blog->description, 300) !!} <a class="read-more" href="{{route('article.show', $blog)}}">Read More</a></p>
                                             </p>
                                         </div>
                                     </div>

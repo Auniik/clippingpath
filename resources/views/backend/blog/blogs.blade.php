@@ -34,7 +34,7 @@
                             <th>#</th>
                             <th>Thumbnail</th>
                             <th>Headline</th>
-                            <th>Description</th>
+                            {{--<th>Description</th>--}}
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -44,9 +44,9 @@
                         @foreach($blogs as $key => $blog)
                             <tr>
                                 <td>{{$sl++}}</td>
-                                <td><img src="{{url($blog->thumbnail)}}" alt="" style="height:60px; width: 60px"></td>
+                                <td><img src="{{url($blog->thumbnail)}}" alt="" style="height:auto; width: 100px"></td>
                                 <td>{{$blog->headline}}</td>
-                                <td>{!!substr($blog->description, 0,50)!!}</td>
+                                {{--<td>{!!substr($blog->description, 0,50)!!}</td>--}}
 
                                 @if($blog->status==1)
                                     <td>
@@ -59,7 +59,7 @@
                                 @endif
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-warning" href="{{route('blogs.show', $blog)}}"><i class="fa fa-eye fa-fw"></i></a>
+                                        <a class="btn btn-sm btn-warning" href="{{route('article.show', $blog)}}"><i class="fa fa-eye fa-fw"></i></a>
                                         <a class="btn btn-sm btn-primary" href="{{route('blogs.edit', $blog)}}"><i class="fa fa-edit fa-fw"></i></a>
                                         <a class="btn btn-sm delete-data btn-danger" href="{{route('blogs.destroy', $blog)}}"><i class="fa fa-trash-o fa-fw"></i></a>
                                     </div>

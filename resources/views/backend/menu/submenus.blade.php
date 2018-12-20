@@ -28,7 +28,7 @@
             <div class="tile">
                 <h3 class="tile-title col-lg-8 offset-lg-2">Add Submenu</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
-                    <form action="{{url('submenus')}}" method="post">
+                    <form action="{{route('submenus.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Menu</label>
@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputAmount">Enter  a unique slug</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><?php echo url('/').'/'.(str_replace(' ', '-', strtolower($menu->name))) ?>/</span></div>
+                                    <div class="input-group-prepend"><span class="input-group-text"><?php echo url('/')  ?>/</span></div>
                                     <input name="slug" value=""  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text"  >
                                     @if($errors->has('slug'))
                                         <div class="invalid-feedback">

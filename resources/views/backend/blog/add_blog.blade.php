@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <label class="control-label">Feature Image</label>
                             <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
-                            <p class="text-primary">Note: Aspect Ratio of Image must be 1:1</p>
+                            <p class="text-primary">Note: Minimum Image width must be within 640px</p>
                             @if($errors->has('thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('thumbnail')}}

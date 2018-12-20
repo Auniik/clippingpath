@@ -33,9 +33,12 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::resource('menus', 'MenuController');
     //Submenu management
-    Route::resource('submenus', 'SubmenuController');
-    Route::get('submenus/{id}/create', 'SubmenuController@create')->name('submenus.create');
+//    Route::resource('submenus', 'SubmenuController');
+    Route::get('submenus/{menu_id}/create', 'SubmenuController@create')->name('submenus.create');
+    Route::post('submenus/store', 'SubmenuController@store')->name('submenus.store');
     Route::get('submenus/{submenu}/edit', 'SubmenuController@edit')->name('submenus.edit');
+    Route::patch('submenus/{submenu}', 'SubmenuController@update')->name('submenus.update');
+    Route::DELETE('submenus/{submenu}', 'SubmenuController@destroy')->name('submenus.destroy');
     //Blog Management
     Route::resource('blogs', 'BlogController');
 

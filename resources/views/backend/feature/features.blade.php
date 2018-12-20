@@ -44,7 +44,7 @@
                     @foreach($features as $key => $feature)
                         <tr>
                             <td>{{$sl++}}</td>
-                            <td><img src="{{url($feature->thumbnail)}}" alt="" style="height:60px; width: 60px"></td>
+                            <td><img src="{{url($feature->thumbnail)}}" alt="" style="height:auto; width: 50px"></td>
                             <td>{{$feature->headline}}</td>
                             <td>{!!substr($feature->description, 0,50)!!}</td>
 
@@ -59,7 +59,7 @@
                             @endif
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-sm btn-warning" href="{{route('features.show', $feature)}}"><i class="fa fa-eye fa-fw"></i></a>
+                                    <a class="btn btn-sm btn-warning" href="{{route('feature.show', $feature)}}"><i class="fa fa-eye fa-fw"></i></a>
                                     <a class="btn btn-sm btn-primary" href="{{route('features.edit', $feature)}}"><i class="fa fa-edit fa-fw"></i></a>
                                     <a class="btn btn-sm delete-data btn-danger" href="{{route('features.destroy', $feature)}}"><i class="fa fa-trash-o fa-fw"></i></a>
                                 </div>

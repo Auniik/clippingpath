@@ -27,7 +27,7 @@
             <div class="tile">
                 <h3 class="tile-title col-lg-8 offset-lg-2">Edit Submenu</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
-                    <form action="" method="post">
+                    <form action="{{route('submenus.update', $submenus->id)}}" method="post">
                         @method('patch')
                         @csrf
                         <div class="form-group">

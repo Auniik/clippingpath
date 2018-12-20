@@ -21,6 +21,17 @@
                         @method('patch')
                         @csrf
                         <div class="form-group">
+                            <label class="control-label">Blog Image</label>
+                            <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
+                            <p class="text-primary">Note: Minimum Image width must be within 640px</p>
+                            <img src="{{url($blog->thumbnail)}}" class="img-fluid" width="640"alt="">
+                            @if($errors->has('thumbnail'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('thumbnail')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Blog Heading</label>
                             <input name="headline" class="form-control @if($errors->has('headline')) is-invalid @endif" value="{{$blog->headline}}" type="text" placeholder="Enter blog headline" >
                             @if($errors->has('headline'))
@@ -38,16 +49,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Blog Image</label>
-                            <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
-                            <p class="text-primary">Note: Aspect Ratio of Image must be 1:1</p>
-                            @if($errors->has('thumbnail'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('thumbnail')}}
-                                </div>
-                            @endif
-                        </div>
+                    
 
                         <div class="animated-radio-button">
                             <label>Publication Status</label>

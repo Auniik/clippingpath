@@ -36,37 +36,18 @@
                             <ul class="main-menu lavaLamp">
                                 <li><a href="{{url('/')}}" class="active">Home</a></li>
                                 {{--<li><a href="about.html">About</a></li>--}}
+                                @foreach($menus as $menu)
                                 <li><a href="#">Clipping Mask</a>
+
                                     <ul class="sub-menu">
-                                        <li><a href="#">Clipping Path</a></li>
-                                        <li><a href="#">Photoshop Masking</a></li>
+                                        @foreach($menu->submenus as $submenu)
+                                            <li><a href="#">Clipping Path</a></li>
+                                        @endforeach
+
                                     </ul>
                                 </li>
-                                <li><a href="#">Shadow Effect</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Mirroring Effect</a></li>
-                                        <li><a href="#">Drop Shadow</a></li>
-                                        <li><a href="#">Natural Shadow</a></li>
-                                        <li><a href="#">Reflection Shadow</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Retouching</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Color Correction</a></li>
-                                        <li><a href="#">Photo Restoration</a></li>
-                                        <li><a href="#">Beauty Retouching</a></li>
-                                        <li><a href="#">Photo Manipulation</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Raster to Vector</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Line Art</a></li>
-                                        <li><a href="#">Logo Redesign</a></li>
-                                        <li><a href="#">Photo Conversion</a></li>
-                                        <li><a href="#">T-Shirt Layout Design</a></li>
-                                        <li><a href="#">Ad Layout Design</a></li>
-                                    </ul>
-                                </li>
+                                @endforeach
+
                                 <li><a href="{{url('portfolio')}}">Portfolio</a></li>
                                 <li><a href="{{url('blog')}}">Blog</a></li>
                                 <li><a href="{{url('contact')}}">Contact</a></li>
@@ -107,28 +88,29 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 box quick-links">
-                    <h4 class="footer-title">Information</h4>
+                <div class="col-md-3 box">
+                    <h4 class="footer-title">Owner's Information</h4>
                     <ul>
-                        <li><a rel="nofollow" target="_blank" href="terms-and-condition.html">Terms &amp; Condition</a></li>
-                        <li><a rel="nofollow" target="_blank" href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a rel="nofollow" target="_blank" href="refund-policy.html">Refund Policy</a></li>
-                        <li><a rel="nofollow" target="_blank" href="partnership-program.html">Partnership Program</a></li>
-                        <li><a rel="nofollow" target="_blank" href="about.html">About</a></li>
-                        <li><a rel="nofollow" target="_blank" href="contact.html">Contact</a></li>
+                        <div class="info">Name:</div><li class="infolist" style="font-size: 16px">{{$config==null ? 'Owner Name here' : $config->owner_name}}</li>
+                        <div class="info">Email:</div><li class="infolist">{{$config==null ? 'Owner Phone here' : $config->owner_phone}}</li>
+                        <div class="info">Phone:</div><li class="infolist">{{$config==null ? 'Owner Email here' : $config->owner_email}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 box">
+                    <h4 class="footer-title">Company</h4>
+                    <ul>
+                        <div class="info">Company Name:</div><li class="infolist" style="font-size: 16px">{{$config==null ? 'Company Name here' : $config->company_name}}</li>
+                        <div  class="info">Licence No:</div><li class="infolist">{{$config==null ? 'Company licence here' : $config->licence}}</li>
+                        <div class="info">Address:</div><li class="infolist">{{$config==null ? 'Company address here' : $config->address}}</li>
                     </ul>
                 </div>
                 <div class="col-md-3 box quick-links">
                     <h4 class="footer-title">Services</h4>
                     <ul>
-                        <li><a href="clipping-path.html">Clipping Path</a></li>
-                        <li><a href="photoshop-masking.html">Masking</a></li>
-                        <li><a href="photo-retouch.html">Retouching</a></li>
-                        <li><a href="color-masking.html">Color Correction</a></li>
-                        <li><a href="neck-join.html">Neck Join</a></li>
-                        <li><a href="shadow-creation.html">Shadow Creation</a></li>
-                        <li><a href="logo-and-identity-design.html">Logo and identity design</a></li>
-                        <li><a href="ui-design.html">UI Design</a></li>
+                        @foreach($features as $feature)
+                            <li><a href="{{route('feature.show', $feature)}}">{{$feature->headline}}</a></li>
+                        @endforeach
+
                     </ul>
                 </div>
                 <div class="col-md-6 box from-blog">
@@ -140,10 +122,6 @@
 
                           </ul>
                 </div>
-                <div class="col-md-3 box quick-links footer-social-area">
-
-                </div>
-
             </div>
         </div>
     </div>

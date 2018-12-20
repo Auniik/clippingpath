@@ -25,7 +25,7 @@
 </head>
 <body class="app sidebar-mini rtl">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="{{url('/dashboard')}}">CliipingPath</a>
+<header class="app-header"><a class="app-header__logo" href="{{url('/dashboard')}}">ClipingPath</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -183,20 +183,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script>
     $('.summernote').summernote({
-        height: 200,
+        height: 400,
         styleWithSpan: false,
         toolbar: [
             // [groupName, [list of button]]
             ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontname', ['fontname']],
             ['fontsize', ['fontsize']],
             ['color', ['color']],
             ['para', ['ul', 'ol']],
             ['table', ['table']],
+            ['insert', ['link', 'hr']],
             ['height', ['height']],
             ['view', ['codeview']],
 
         ],
+        fontsize: '16',
         popover: {
             image: [],
             link: [],

@@ -11,9 +11,9 @@
                         <span class="right-shadow"></span>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-lg-10 left-margin">
                     <div class="left-area">
-                        <article id="post-539" class="post-539 post type-post status-publish format-standard hentry category-cpf-facts blog-post-small">
+                        <article id="post-539" class="post type-post status-publish format-standard hentry category-cpf-facts blog-post-small">
                             <header class="entry-header">
                                 <h1 class="entry-title">{{$blog->headline}}</h1>
 
