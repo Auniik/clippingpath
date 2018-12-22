@@ -6,20 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-
     protected $fillable =[
+        'submenu_id',
         'name',
         'slug',
         'before_thumbnail',
         'after_thumbnail',
         'title',
-        'description',
-        'status',
-        'menu_id',
+        'description'
     ];
 
-    public function menu()
+    public function submenu()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo(Submenu::   class);
     }
 }

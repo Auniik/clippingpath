@@ -13,11 +13,11 @@
                         <div id="layer-01-bg-02" class="ls-s6" style="background:{{$slider->background_color}};" data-rel="delayin: 300; slidedirection: top; slideoutdirection: left; durationin: 3000;"></div>
                 <div id="layer-01-slide-01" class="ls-s6" style="" data-rel="delayin: 100; slidedirection: right; slideoutdirection: left; durationin: 1500;">
                     <p>{{$slider->thumbnail_square_title}}</p>
-                    <img  src="{{$slider->thumbnail_square}}" style="box-shadow: -16px 15px 24px -21px black;" alt="home-slider-01">
+                    <img class="img-fluid" src="{{$slider->thumbnail_square}}" style="box-shadow: -16px 15px 24px -21px black;" alt="home-slider-01">
                 </div>
 
                 <div id="layer-01-slide-02" class="ls-s4" style="" data-rel="delayin: 100; slidedirection: bottom; slideoutdirection: bottom; durationin: 2000;">
-                    <img src="{{$slider->thumbnail_wide}}" style="box-shadow: -16px 15px 24px -21px black" alt="home-slider-02">
+                    <img class="img-fluid" src="{{$slider->thumbnail_wide}}" style="box-shadow: -16px 15px 24px -21px black" alt="home-slider-02">
                     <p>{{$slider->thumbnail_wide_title}}</p>
                 </div>
 

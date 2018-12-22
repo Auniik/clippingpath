@@ -3770,10 +3770,11 @@ ul.contact-form li .invalid-block{
   .slider-button:hover span {
 	  color: #444343;
   }
-  
+
   #layer-02-slide-01 {
 	  top: 0%;
 	  left: 0% !important;
+	  height:inherit;
 	  width: 100% !important;
   }
   #layer-02-slide-02 {
@@ -5127,6 +5128,7 @@ ul.contact-form li .invalid-block{
 	  }
   }
   @media (max-width: 350px) {
+
 	  .slider-area {
 		  height: 230px;
 	  }
@@ -5301,3 +5303,4 @@ ul.contact-form li .invalid-block{
 	padding-left: 10%;
 	padding-right: 10%;
 }
+

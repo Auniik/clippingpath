@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
             $features=Feature::where('status',1)->orderBy('created_at', 'asc')->take(5)->get();
 
             $menus=Menu::where('status',1)->orderBy('created_at', 'asc')->get();
-            $submenus=Submenu::where(['status',1],['menu_id',])->
+            // $submenus=Submenu::where(['status',1],['menu_id',])->
 
             $view->with('config', $config);
             $view->with('blogs', $blogs);

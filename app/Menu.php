@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     protected $fillable =[
-        'name', 'slug', 'serial',  'status',
+        'name', 'slug', 'serial',  'status', 'id',
     ];
 
-    public function submenus()
-    {
-            return $this->hasMany(Submenu::class);
-    }
+        public function submenus()
+        {
+                return $this->hasMany(Submenu::class);
+        }
 }

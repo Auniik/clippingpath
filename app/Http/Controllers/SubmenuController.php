@@ -15,6 +15,10 @@ class SubmenuController extends Controller
      */
     public function index()
     {
+//        $data = Submenu::latest()->first();
+        $submenus= Submenu::orderBy('created_at', 'asc')->paginate(5);
+
+        return view('backend.menu.submenu.submenus', compact('submenus'));
     }
 
     /**
@@ -49,6 +53,7 @@ class SubmenuController extends Controller
             'slug' => 'required|unique:submenus',
         ]);
         $input=$request->all();
+//        dd($input);
         Submenu::create($input);
         return redirect('menus')->withMessage('Submenu created successfully');
     }

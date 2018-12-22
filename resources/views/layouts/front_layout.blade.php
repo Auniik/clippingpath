@@ -29,7 +29,7 @@
                     <div class="col-md-3 col-sm-3">
                         <span class="logo"><a href="{{url('/')}}"><img class="img img-responsive" src="{{asset('frontend/images/logo.png')}}" alt=""></a></span>
                     </div>
-                    <div class="col-md-9 col-sm-9">
+                    <div class="col- sliderimgmd-9 col-sm-9">
                         <div class="main-menu-area">
                             <!-- <div class="menu-controll"><p>+</p></div> -->
                             <!-- lavaLamp class is require for lavaLamp effect -->
@@ -37,12 +37,12 @@
                                 <li><a href="{{url('/')}}" class="active">Home</a></li>
                                 {{--<li><a href="about.html">About</a></li>--}}
                                 @foreach($menus as $menu)
-                                <li><a href="#">Clipping Mask</a>
+                                <li><a href="#">{{$menu->name}}</a>
 
                                     <ul class="sub-menu">
-                                        @foreach($menu->submenus as $submenu)
-                                            <li><a href="#">Clipping Path</a></li>
-                                        @endforeach
+                                         @foreach($menu->submenus as $submenu)
+                                            <li><a href="#">{{$submenu->name}}</a></li>
+                                         @endforeach
 
                                     </ul>
                                 </li>

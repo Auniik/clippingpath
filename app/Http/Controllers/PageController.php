@@ -18,7 +18,7 @@ class PageController extends Controller
 
 
         $pages=Page::with('menu')->orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.menu.pages', compact('pages', 'menus'));
+        return view('backend.page.pages', compact('pages', 'menus'));
     }
 
     /**
@@ -26,10 +26,17 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($submenu_id)
     {
-        $menus=Menu::where('status',1)->get();
-        return view('backend.menu.add_page',  compact('menus'));
+
+        $data = Submenu::latest()->first();
+        //Relation with menu to pass submenu_id from Menu model
+        $submenu=Submenu::find($submenu_id);
+
+//        //Get Submenu for List view
+//        $pages = Page::where('submenu_id', $submenu_id)->orderBy('created_at', 'asc')->paginate(10);
+
+        return view('backend.page.add_page', compact('submenu','pages', 'data'));
     }
 
     /**
@@ -88,7 +95,7 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         $menus=Menu::where('status',1)->get();
-        return view('backend.menu.edit_page', compact('page', 'menus'));
+        return view('backend.page.edit_page', compact('page', 'menus'));
     }
 
     /**

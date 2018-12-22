@@ -33,7 +33,7 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::resource('menus', 'MenuController');
     //Submenu management
-//    Route::resource('submenus', 'SubmenuController');
+    Route::get('submenus', 'SubmenuController@index')->name('sunmenus');
     Route::get('submenus/{menu_id}/create', 'SubmenuController@create')->name('submenus.create');
     Route::post('submenus/store', 'SubmenuController@store')->name('submenus.store');
     Route::get('submenus/{submenu}/edit', 'SubmenuController@edit')->name('submenus.edit');
@@ -43,6 +43,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('blogs', 'BlogController');
 
     Route::resource('pages', 'PageController');
+    Route::get('pages/{submenu_id}', 'PageController@create');
     //Portfolio
     Route::resource('portfolio-items', 'PortfolioController');
     //Feedback From Clients

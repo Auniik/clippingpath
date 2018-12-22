@@ -19,8 +19,8 @@ class MainPageController extends Controller
         $feedbacks = Testimonial::where('status',1)->orderBy('created_at', 'desc')->paginate(5);
         $portfolios=Portfolio::where('status',1)->orderBy('created_at', 'desc')->take(3)->get();
         //Slider
-        $bulk_sliders=Slider::whereNull('background_thumbnail')->get();
-        $cover_sliders=Slider::whereNull('thumbnail_wide')->get();
+        $bulk_sliders=Slider::whereNull('background_thumbnail')->where('status',1)->get();
+        $cover_sliders=Slider::whereNull('thumbnail_wide')->where('status',1)->get();
         return view('frontend.home.homepage', compact('config', 'socials', 'features', 'portfolios','feedbacks', 'bulk_sliders', 'cover_sliders'));
     }
 }
