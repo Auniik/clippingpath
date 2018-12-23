@@ -1,7 +1,7 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/order', function () {
+    return view('frontend.order.order');
 });
 
 

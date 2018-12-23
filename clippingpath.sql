@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 20, 2018 at 03:32 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Dec 23, 2018 at 06:37 PM
+-- Server version: 10.1.34-MariaDB-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -87,6 +85,13 @@ CREATE TABLE `contact_configs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `contact_configs`
+--
+
+INSERT INTO `contact_configs` (`id`, `location_one`, `address_one`, `location_two`, `address_two`, `location_three`, `address_three`, `google_maps`, `created_at`, `updated_at`) VALUES
+(1, 'Canada', 'Trek Socity Lane, State-1', 'India', 'Hesna Troly, Delhi', 'Bangladesh', 'Road 2, Dhanmondi, Dhaka', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29212.325256276967!2d90.3627177962962!3d23.76375431327903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c09f9ba3d447%3A0x1babce9f1c6c95a3!2sMohammadpur%2C+Dhaka!5e0!3m2!1sen!2sbd!4v1545588391576', '2018-12-23 12:06:41', '2018-12-23 12:06:41');
+
 -- --------------------------------------------------------
 
 --
@@ -127,14 +132,6 @@ CREATE TABLE `menus` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `menus`
---
-
-INSERT INTO `menus` (`id`, `name`, `slug`, `serial`, `status`, `created_at`, `updated_at`) VALUES
-(12, 'Clipping Mask', '#', 1, 1, '2018-12-19 06:09:03', '2018-12-19 06:09:03'),
-(13, 'Shadow Effect', '#', 2, 1, '2018-12-19 06:13:00', '2018-12-19 06:13:00');
-
 -- --------------------------------------------------------
 
 --
@@ -165,9 +162,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2018_12_15_092034_create_newsletters_table', 1),
 (12, '2018_12_17_065745_create_socials_table', 1),
 (13, '2018_12_17_121534_create_menus_table', 1),
-(14, '2018_12_17_124037_create_pages_table', 1),
-(15, '2018_12_19_084401_create_submenus_table', 2),
-(16, '2018_12_19_184401_create_submenus_table', 3);
+(14, '2018_12_19_184401_create_submenus_table', 1),
+(15, '2018_12_22_193527_create_pages_table', 1);
 
 -- --------------------------------------------------------
 
@@ -190,14 +186,14 @@ CREATE TABLE `newsletters` (
 
 CREATE TABLE `pages` (
   `id` int(10) UNSIGNED NOT NULL,
-  `menu_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `before_thumbnail` text COLLATE utf8mb4_unicode_ci,
+  `submenu_id` int(10) UNSIGNED NOT NULL,
+  `before_thumbnail` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `after_thumbnail` text COLLATE utf8mb4_unicode_ci,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint(4) NOT NULL,
+  `feature_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `feature_text` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -264,6 +260,13 @@ CREATE TABLE `site_configurations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `site_configurations`
+--
+
+INSERT INTO `site_configurations` (`id`, `website_name`, `website_email`, `website_phone`, `message`, `company_name`, `licence_number`, `address`, `owner_name`, `owner_phone`, `owner_email`, `logo`, `favicon`, `created_at`, `updated_at`) VALUES
+(1, 'Clipping path', 'info@clippingpath.com', '1234456432423', 'SOLUTIONS FOR YOUR IMAGE EDITING & DESIGN NEEDS!', 'Clipping Crews', '836278638723', '232/545/3, Tersk State, Canada', 'John Doe', '23224456756', 'john@email.me', 'uploads/images/logo/8cQnSuvbXi5ZemkMeVCyk5kdI1nqvpCjNTvNDQEG.png', 'uploads/favicon/oJW3zyikG13M2Lf6pUBGTlo59ApK0Tr0h08Cr3xY.png', '2018-12-23 11:41:45', '2018-12-23 11:41:45');
 
 -- --------------------------------------------------------
 
@@ -337,15 +340,6 @@ CREATE TABLE `submenus` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `submenus`
---
-
-INSERT INTO `submenus` (`id`, `menu_id`, `name`, `slug`, `serial`, `status`, `created_at`, `updated_at`) VALUES
-(5, 12, 'Clipping Path', 'clipping-path', 1, 1, '2018-12-19 06:09:30', '2018-12-19 06:09:30'),
-(6, 12, 'Photoshop Masking', 'photoshop-masking', 2, 1, '2018-12-19 06:14:27', '2018-12-19 06:14:27'),
-(7, 13, 'Drop Shadow', 'drop-shadow', 3, 1, '2018-12-19 06:15:34', '2018-12-19 06:15:34');
-
 -- --------------------------------------------------------
 
 --
@@ -394,7 +388,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Anik Datta', 'aunik.t2@gmail.com', NULL, '$2y$10$L1Ll9X0OCSeX5RGR5IBBKumUXXiyhexIBFMwqOdcALIZSMNhCn0tW', NULL, '2018-12-18 06:02:19', '2018-12-18 06:02:19');
+(1, 'Anik Datta', 'aunik.t2@gmail.com', NULL, '$2y$10$L1Ll9X0OCSeX5RGR5IBBKumUXXiyhexIBFMwqOdcALIZSMNhCn0tW', 'kqZPnl7sEnlHzz1IedyFYRKXfmzlZNq21ciyjC9ZosW5e35W3ucb0BobXOpu', '2018-12-18 06:02:19', '2018-12-18 06:02:19');
 
 --
 -- Indexes for dumped tables
@@ -447,8 +441,7 @@ ALTER TABLE `newsletters`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `pages_menu_id_foreign` (`menu_id`),
-  ADD KEY `pages_slug_index` (`slug`);
+  ADD KEY `pages_submenu_id_foreign` (`submenu_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -510,91 +503,76 @@ ALTER TABLE `users`
 --
 ALTER TABLE `blogs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `contact_configs`
 --
 ALTER TABLE `contact_configs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `newsletters`
 --
 ALTER TABLE `newsletters`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `portfolios`
 --
 ALTER TABLE `portfolios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `site_configurations`
 --
 ALTER TABLE `site_configurations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `socials`
 --
 ALTER TABLE `socials`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
@@ -603,14 +581,13 @@ ALTER TABLE `users`
 -- Constraints for table `pages`
 --
 ALTER TABLE `pages`
-  ADD CONSTRAINT `pages_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `pages_submenu_id_foreign` FOREIGN KEY (`submenu_id`) REFERENCES `submenus` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `submenus`
 --
 ALTER TABLE `submenus`
   ADD CONSTRAINT `submenus_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

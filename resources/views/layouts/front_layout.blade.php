@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>@yield('title')</title>
     <!-- Font embeding -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    {{--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>--}}
     <!-- CSS Include -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/bootstrap-responsive.min.css')}}">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/animate.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{$config==null ? 'frontend/images/favicon.ico' : $config->favicon}}" sizes="32x32" />
 </head>
 
 <body>
@@ -27,7 +28,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
-                        <span class="logo"><a href="{{url('/')}}"><img class="img img-responsive" src="{{asset('frontend/images/logo.png')}}" alt=""></a></span>
+                        <span class="logo"><a href="{{url('/')}}"><img class="img img-responsive" src="{{url($config->logo)}}" alt=""></a></span>
                     </div>
                     <div class="col- sliderimgmd-9 col-sm-9">
                         <div class="main-menu-area">
@@ -103,7 +104,7 @@
                     <h4 class="footer-title">Company</h4>
                     <ul>
                         <div class="info">Company Name:</div><li class="infolist" style="font-size: 16px">{{$config==null ? 'Company Name here' : $config->company_name}}</li>
-                        <div  class="info">Licence No:</div><li class="infolist">{{$config==null ? 'Company licence here' : $config->licence}}</li>
+                        <div  class="info">Licence No:</div><li class="infolist">{{$config==null ? 'Company licence here' : $config->licence_number}}</li>
                         <div class="info">Address:</div><li class="infolist">{{$config==null ? 'Company address here' : $config->address}}</li>
                     </ul>
                 </div>
@@ -129,27 +130,30 @@
         </div>
     </div>
     <div class="container">
-            <div class="row payment">
-                      <div class="col-md-5">
-                                <div class="copyright-area">
-                                          <p>&copy; {{date('Y')}}. All rights reserved <a href="{{url('/')}}"> {{$config==null ? 'Company Name here' : $config->company_name}}</a></p>
-                                </div>
-                      </div>
-                      <div class="col-md-7">
-                                <ul>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/visa.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/mc.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/ae.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/paypal.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/wu.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/skrill.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/club.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/dis.png')}}"></li>
-                                          <li><img alt="payment method" src="{{asset('frontend/images/payment/han.png')}}"></li>
-                                </ul>
-                                <div class="clear"></div>
-                      </div>
+        <div class="row payment">
+            <div class="col-md-5">
+                <div class="copyright-area">
+                    <p>&copy; {{date('Y')}}. All rights reserved <a href="{{url('/')}}"> {{$config==null ? 'Company Name here' : $config->company_name}}</a></p>
+                    <p>Developed by <a href="https://www.smartsoftware.com.bd" target="_blank">Smart Software Inc.</a></p>
+                </div>
             </div>
+            <div class="col-md-7">
+                <ul>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/visa.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/mc.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/ae.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/paypal.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/wu.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/skrill.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/club.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/dis.png')}}"></li>
+                    <li><img alt="payment method" src="{{asset('frontend/images/payment/han.png')}}"></li>
+
+                </ul>
+
+                <div class="clear"></div>
+            </div>
+        </div>
     </div>
 </footer>
 

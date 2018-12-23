@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="websitePhone">Website Phone</label>
-                            <input class="form-control @if($errors->has('website_phone')) is-invalid @endif" value="{{old('website_phone')}}"  name="website_phone" id="websitePhone" type="text" placeholder="Enter website name">
+                            <input class="form-control @if($errors->has('website_phone')) is-invalid @endif" value="{{$configRecord->website_phone}}"  name="website_phone" id="websitePhone" type="text" placeholder="Enter website name">
                             @if($errors->has('website_phone'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('website_phone')}}

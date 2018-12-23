@@ -71,6 +71,7 @@
                         <label class="control-label">Website Logo</label>
                         <input class="form-control @if($errors->has('logo')) is-invalid @endif" name="logo" type="file" >
                         @if($errors->has('logo'))
+                            <p class="text-primary">Note: follow 250px * 66px for height and width for this logo.</p>
                             <div class="invalid-feedback">
                                 {{$errors->first('logo')}}
                             </div>
@@ -79,6 +80,7 @@
                     <div class="form-group">
                         <label class="control-label">Favicon</label>
                         <input class="form-control @if($errors->has('favicon')) is-invalid @endif" name="favicon"  type="file">
+                        <p class="text-primary">Note: Favicon must be in square size with the extention .ico*</p>
                         @if($errors->has('favicon'))
                             <div class="invalid-feedback">
                                 {{$errors->first('favicon')}}
