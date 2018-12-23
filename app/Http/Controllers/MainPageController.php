@@ -8,6 +8,8 @@ use App\Slider;
 use App\Testimonial;
 use App\Social;
 use App\Portfolio;
+use App\Submenu;
+use App\Page;
 
 class MainPageController extends Controller
 {
@@ -22,5 +24,14 @@ class MainPageController extends Controller
         $bulk_sliders=Slider::whereNull('background_thumbnail')->where('status',1)->get();
         $cover_sliders=Slider::whereNull('thumbnail_wide')->where('status',1)->get();
         return view('frontend.home.homepage', compact('config', 'socials', 'features', 'portfolios','feedbacks', 'bulk_sliders', 'cover_sliders'));
+    }
+
+    public function show($menu, $slug){
+
+        $submenu= Submenu::where('slug', $slug)->first();
+        $menu = str_replace(' ', '-', strtolower('menu'.$submenu->menu->name));
+        $page = Page::where('submenu_id', $submenu->id)->first();
+        if ($page==null)
+        return view('frontend.page.page', compact('page', 'menu'));
     }
 }

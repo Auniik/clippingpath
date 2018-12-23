@@ -37,19 +37,24 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Slug</th>
-                            <th>Serial</th>
                             <th>Add Page</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php $sl=$submenus->firstItem() ?>
                         @foreach($submenus as $key => $submenu)
+                            <?php
+                                $menu_name =str_replace(' ', '-', strtolower($submenu->menu->name));
+                            ?>
                             <tr>
                                 <td>{{$sl++}}</td>
                                 <td>{{$submenu->name}}</td>
-                                <td><a href="{{url('/')}}/{{$submenu->slug}}">{{url('/')}}/{{$submenu->slug}}</a></td>
-                                <td><a class="btn btn-sm  btn-default" href="{{route('pages.create', $submenu)}}">Add Page</a></td>
+                                <td>
+                                    <a href="{{url('/')}}/{{$menu_name}}/{{$submenu->slug}}">{{url('/')}}/{{$menu_name}}/{{$submenu->slug}}</a>
+                                </td>
+                                <td><a class="btn btn-sm  btn-default" href="{{route('pages.add', $submenu)}}">Add Page</a></td>
                                 @if($submenu->status==1)
                                     <td>
                                         <span class="badge badge-success">Active</span>

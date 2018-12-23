@@ -3,7 +3,7 @@
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-briefcase"></i> Add Page</h1>
+            <h1><i class="fa fa-briefcase"></i> Manage Pages</h1>
             <p>Add page for navigation menu</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -32,10 +32,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Parent Menu</th>
-                            <th>Page Name</th>
+                            <th>Submenu</th>
                             <th>Slug</th>
-                            <th>Status</th>
+                            <th>Title</th>
+                            <th>Description</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -44,22 +44,14 @@
                         @foreach($pages as $key => $page)
                             <tr>
                                 <td>{{$sl++}}</td>
-                                <td>{{$page->menu->menu}}</td>
-                                <td>{{$page->name}}</td>
-                                <td>{{$page->slug}}</td>
-                                @if($page->status==1)
-                                    <td>
-                                        <span class="badge badge-success">Active</span>
-                                    </td>
-                                @else
-                                    <td>
-                                        <span class="badge badge-danger">Inactive</span>
-                                    </td>
-                                @endif
+                                <td>{{$page->submenu->name}}</td>
+                                <td>{{$page->submenu->slug}}</td>
+                                <td>{{$page->title}}</td>
+                                <td>{!! str_limIt($page->description, 150)!!}</td>
+
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-primary" href="{{route('pages.edit' , $page)}}"><i class="fa fa-edit fa-fw"></i></a>
-                                        <a class="btn btn-sm delete-data btn-danger" href="{{route('pages.destroy' , $page)}}"><i class="fa fa-trash-o fa-fw"></i></a>
+                                        <a class="btn btn-sm btn-primary" href="{{route('pages.add' , $page->submenu->id)}}"><i class="fa fa-edit fa-fw"></i></a>
                                     </div>
                                 </td>
                             </tr>

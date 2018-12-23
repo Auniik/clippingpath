@@ -84,8 +84,6 @@ class MenuController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:menus,slug,'.$menu->id,
-            'serial' => 'required',
         ]);
         $input =  $request->all();
         $menu->update($input);

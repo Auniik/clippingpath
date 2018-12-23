@@ -8,12 +8,13 @@ class Page extends Model
 {
     protected $fillable =[
         'submenu_id',
-        'name',
-        'slug',
         'before_thumbnail',
         'after_thumbnail',
         'title',
-        'description'
+        'icon',
+        'description',
+        'feature_title',
+        'feature_text',
     ];
 
     public function submenu()

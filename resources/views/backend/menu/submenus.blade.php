@@ -69,23 +69,14 @@
                             @endif
                         </div>
                         <div class="animated-radio-button">
-                            <label>Publication Status</label>
+                            {{--<label>Publication Status</label>--}}
                             <div >
                                 <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="1" checked="checked"><span class="label-text">Active</span>
+                                    <input type="hidden" name="status" class="form-check-input" value="0">
                                 </label>
                             </div>
-
                             <div>
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="0"><span class="label-text">Inactive</span>
-                                </label>
                             </div>
-                            @if($errors->has('status'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('status')}}
-                                </div>
-                            @endif
                         </div>
                         <div class="tile-footer">
                             <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Menu</button>

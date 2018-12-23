@@ -27,17 +27,17 @@
             <div class="tile">
                 <h3 class="tile-title col-lg-8 offset-lg-2">Edit Submenu</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
-                    <form action="{{route('submenus.update', $submenus->id)}}" method="post">
+                    <form action="{{route('submenus.update', $submenu)}}" method="post">
                         @method('patch')
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Menu</label>
-                            <input value="{{optional($submenus->menu)->name  }}" class="form-control" disabled  >
-                            <input type="hidden" name="menu_id" value="{{$submenus->menu_id}}"  class="form-control" >
+                            <input value="{{optional($submenu->menu)->name  }}" class="form-control" disabled  >
+                            <input type="hidden" name="menu_id" value="{{$submenu->menu_id}}"  class="form-control" >
                         </div>
                         <div class="form-group">
                             <label class="control-label">Submenu Name</label>
-                            <input name="name"  value="{{$submenus->name}}" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
+                            <input name="name"  value="{{$submenu->name}}" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
                             @if($errors->has('name'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('name')}}
@@ -50,7 +50,7 @@
                                 <label class="sr-only" for="exampleInputAmount">Enter  a unique slug</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text"><?php echo url('/') ?>/</span></div>
-                                    <input name="slug" value="{{$submenus->slug}}"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" value="#" >
+                                    <input name="slug" value="{{$submenu->slug}}"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" value="#" >
                                     @if($errors->has('slug'))
                                         <div class="invalid-feedback">
                                             {{$errors->first('slug')}}
@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Serial</label>
-                            <input name="serial" value="{{$submenus->serial}}" min="{{($submenus->serial)}}" class="form-control @if($errors->has('serial')) is-invalid @endif" type="number">
+                            <input name="serial" value="{{$submenu->serial}}" min="{{($submenu->serial)}}" class="form-control @if($errors->has('serial')) is-invalid @endif" type="number">
                             @if($errors->has('serial'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('serial')}}
@@ -72,13 +72,13 @@
                             <label>Publication Status</label>
                             <div >
                                 <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="1" {{$submenus->status==1 ? 'checked' : ''}}><span class="label-text">Active</span>
+                                    <input type="radio" name="status" class="form-check-input" value="1" {{$submenu->status==1 ? 'checked' : ''}}><span class="label-text">Active</span>
                                 </label>
                             </div>
 
                             <div>
                                 <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="0" {{$submenus->status==0 ? 'checked' : ''}}><span class="label-text">Inactive</span>
+                                    <input type="radio" name="status" class="form-check-input" value="0" {{$submenu->status==0 ? 'checked' : ''}}><span class="label-text">Inactive</span>
                                 </label>
                             </div>
                         </div>

@@ -27,12 +27,14 @@ class AppServiceProvider extends ServiceProvider
             $features=Feature::where('status',1)->orderBy('created_at', 'asc')->take(5)->get();
 
             $menus=Menu::where('status',1)->orderBy('created_at', 'asc')->get();
-            // $submenus=Submenu::where(['status',1],['menu_id',])->
+//            $submenus = Submenu::where('status', 1)->get();
+//            dd($submenus);
 
             $view->with('config', $config);
             $view->with('blogs', $blogs);
             $view->with('features', $features);
             $view->with('menus', $menus);
+//            $view->with('submenus', $submenus);
         });
 
         View::composer('layouts.admin_layout', function($view)

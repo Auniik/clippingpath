@@ -17,7 +17,6 @@ class SubmenuController extends Controller
     {
 //        $data = Submenu::latest()->first();
         $submenus= Submenu::orderBy('created_at', 'asc')->paginate(5);
-
         return view('backend.menu.submenu.submenus', compact('submenus'));
     }
 
@@ -29,13 +28,11 @@ class SubmenuController extends Controller
     public function create($menu_id)
     {
         //Serial
-        $data = Submenu::latest()->first();
+        $data = Submenu::where('menu_id', $menu_id)->latest()->first();
         //Relation with menu to pass menu_id from Menu model
-        $menu=Menu::find($menu_id);
-
+        $menu = Menu::find($menu_id);
         //Get Submenu for List view
         $submenus = Submenu::where('menu_id', $menu_id)->orderBy('created_at', 'asc')->paginate(10);
-
         return view('backend.menu.submenus', compact('submenus','menu', 'data'));
     }
 
@@ -78,8 +75,8 @@ class SubmenuController extends Controller
     public function edit($id)
     {
         //Get Submenu for view
-        $submenus = Submenu::find($id);
-        return view('backend.menu.edit_submenu', compact('submenus'));
+        $submenu = Submenu::find($id);
+        return view('backend.menu.edit_submenu', compact('submenu'));
     }
 
     /**
@@ -98,7 +95,7 @@ class SubmenuController extends Controller
         ]);
         $input = $request->all();
         $submenu->update($input);
-        return redirect('menus')->withMessage('Submenu updated successfully');
+        return redirect('submenus')->withMessage('Submenu updated successfully');
     }
 
     /**
@@ -110,6 +107,6 @@ class SubmenuController extends Controller
     public function destroy(Submenu $submenu)
     {
         $submenu->delete();
-        return redirect('menus')->withMessage('Submenu Deleted');
+        return redirect('submenus')->withMessage('Submenu Deleted');
     }
 }

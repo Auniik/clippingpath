@@ -35,13 +35,16 @@
                             <!-- lavaLamp class is require for lavaLamp effect -->
                             <ul class="main-menu lavaLamp">
                                 <li><a href="{{url('/')}}" class="active">Home</a></li>
-                                {{--<li><a href="about.html">About</a></li>--}}
                                 @foreach($menus as $menu)
-                                <li><a href="#">{{$menu->name}}</a>
-
+                                <li><a href="{{$menu->slug}}">{{$menu->name}}</a>
+                                   @php  $menu_name = str_replace(' ', '-', strtolower($menu->name)); @endphp
                                     <ul class="sub-menu">
                                          @foreach($menu->submenus as $submenu)
-                                            <li><a href="#">{{$submenu->name}}</a></li>
+
+                                             {{--@if ($submenu)--}}
+                                                 {{----}}
+                                             {{--@endif--}}
+                                            <li><a href="{{url('/'.$menu_name.'/'.$submenu->slug)}}">{{$submenu->name}}</a></li>
                                          @endforeach
 
                                     </ul>

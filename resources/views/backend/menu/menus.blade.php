@@ -100,7 +100,7 @@
                                 <label class="sr-only" for="exampleInputAmount">Enter  a unique slug</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text"><?php echo url('/') ?>/</span></div>
-                                    <input name="slug"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" value="#" >
+                                    <input name="slug"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" value="#">
                                     @if($errors->has('slug'))
                                         <div class="invalid-feedback">
                                             {{$errors->first('slug')}}

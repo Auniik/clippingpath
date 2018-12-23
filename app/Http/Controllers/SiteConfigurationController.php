@@ -53,6 +53,7 @@ class SiteConfigurationController extends Controller
 
     public function edit($configRecord)
     {
+
         return view('backend.config.edit_config', compact('configRecord'));
     }
     public function update(Request $request){

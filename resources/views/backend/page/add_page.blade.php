@@ -1,5 +1,5 @@
 @extends('layouts.admin_layout')
-@section('title', 'Add Page for Navigation Menu')
+@section('title', 'Add Page for Navigation Submenu')
 @section('admin_content')
     <div class="app-title">
         <div>
@@ -8,7 +8,7 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('menus')}}">Manage Menus</a></li>
+            <li class="breadcrumb-item"><a href="{{url('submenus')}}">Manage Submenus</a></li>
         </ul>
     </div>
 
@@ -31,36 +31,23 @@
                     <form action="{{url('pages')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label class="control-label">Menu</label>
-                            <select class="form-control @if($errors->has('menu_id')) is-invalid @endif" name="menu_id">
-                                <option value="">----------SELECT MENU-----------</option>
-                                @foreach($menus as $menu)
-                                    <option value="{{$menu->id}}">{{$menu->menu}}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('menu_id'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('menu_id')}}
-                                </div>
-                            @endif
+                            <label class="control-label">Submenu</label>
+                            <input value="{{$submenu->name}}"  class="form-control" disabled  >
+                            <input type="hidden" name="submenu_id" value="{{$submenu->id}}"  class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Submenu Name</label>
-                            <input name="name" class="form-control @if($errors->has('name')) is-invalid @endif" value="{{old('name')}}" type="text" placeholder="example: Photoshop Masking" >
-                            @if($errors->has('name'))
-                                <div class="invalid-feedback">
-                                    {{$errors->first('name')}}
-                                </div>
-                            @endif
+                            <label class="control-label">Slug</label>
+                            <input value="<?php echo url('/') ?>/{{$submenu->slug}}"  class="form-control" disabled  >
+
                         </div>
-
-
-                        <hr><br><br>
-
                         <div class="form-group">
-                            <label class="control-label">Before Image</label>
-                            <input class="form-control @if($errors->has('before_thumbnail')) is-invalid @endif" name="before_thumbnail" type="file" >
-                            <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
+                            <hr>
+                            <p class="text-warning"><i>If you want to compare two images on mouse hover then add before and after images.</i></p>
+                        </div>
+                        <div class="form-group">
+                                <label class="control-label">Before Image</label>
+                                <input class="form-control @if($errors->has('before_thumbnail')) is-invalid @endif" name="before_thumbnail" type="file" >
+                                <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
                             @if($errors->has('before_thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('before_thumbnail')}}
@@ -88,6 +75,16 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <label class="control-label">Service Icon</label>
+                            <input class="form-control @if($errors->has('icon')) is-invalid @endif" name="icon" type="file" >
+                            <p class="text-primary">Note: Size of Image must be under 100px *  100px. Try to use a specific .PNG icon here which can describe content of this page.</p>
+                            @if($errors->has('icon'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('icon')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Description</label>
                             <textarea name="description" id="" class="summernote form-control @if($errors->has('description')) is-invalid @endif" placeholder="Enter item's description">{{old('description')}}</textarea>
                             @if($errors->has('description'))
@@ -96,26 +93,25 @@
                                 </div>
                             @endif
                         </div>
-
-                        <div class="animated-radio-button">
-                            <label>Publication Status</label>
-                            <div >
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="1" checked="checked"><span class="label-text">Active</span>
-                                </label>
-                            </div>
-
-                            <div>
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="0"><span class="label-text">Inactive</span>
-                                </label>
-                            </div>
-                            @if($errors->has('status'))
+                        <div class="form-group">
+                            <label class="control-label">Feature Title</label>
+                            <input name="feature_title" class="form-control @if($errors->has('feature_title')) is-invalid @endif" value="{{old('feature_title')}}" type="text" placeholder="Enter feature title" >
+                            @if($errors->has('feature_title'))
                                 <div class="invalid-feedback">
-                                    {{$errors->first('status')}}
+                                    {{$errors->first('feature_title')}}
                                 </div>
                             @endif
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">Feature Text</label>
+                            <textarea name="feature_text" rows="4" class="form-control @if($errors->has('feature_text')) is-invalid @endif" placeholder="Enter item's description">{{old('feature_text')}}</textarea>
+                            @if($errors->has('feature_text'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('feature_text')}}
+                                </div>
+                            @endif
+                        </div>
+
                         <div class="tile-footer">
                             <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Page</button>
                         </div>

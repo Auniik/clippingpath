@@ -32,10 +32,10 @@
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Menu Name</label>
-                            <input name="menu" value="{{$menu->menu}}" class="form-control @if($errors->has('menu')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
-                            @if($errors->has('menu'))
+                            <input name="name" value="{{$menu->name}}" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
+                            @if($errors->has('name'))
                                 <div class="invalid-feedback">
-                                    {{$errors->first('menu')}}
+                                    {{$errors->first('name')}}
                                 </div>
                             @endif
                         </div>

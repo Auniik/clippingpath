@@ -16,12 +16,13 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('submenu_id');
-            $table->string('name');
-            $table->string('slug')->index();
-            $table->text('before_thumbnail')->nullable(true);
+            $table->text('before_thumbnail');
             $table->text('after_thumbnail')->nullable(true);
             $table->string('title');
+            $table->text('icon');
             $table->text('description');
+            $table->string('feature_title')->nullable(true);
+            $table->text('feature_text')->nullable(true);
             $table->timestamps();
 
             $table->foreign('submenu_id')->references('id')->on('submenus')->onDelete('cascade');
