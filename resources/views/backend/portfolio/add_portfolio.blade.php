@@ -31,7 +31,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <label class="control-label">Before Image</label>
+                            <label class="control-label">Default Image</label>
                             <input class="form-control @if($errors->has('before_thumbnail')) is-invalid @endif" name="before_thumbnail" type="file" >
                             <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
                             @if($errors->has('before_thumbnail'))
@@ -42,7 +42,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">After Image</label>
+                            <label class="control-label">Moving Image <span class="text-warning">(Optional)</span></label>
+                            <small class="text-success">Its a  moving image over the default image.</small>
                             <input class="form-control @if($errors->has('after_thumbnail')) is-invalid @endif" name="after_thumbnail" type="file" >
                             <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
                             @if($errors->has('after_thumbnail'))

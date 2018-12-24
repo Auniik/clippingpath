@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 23, 2018 at 06:37 PM
--- Server version: 10.1.34-MariaDB-0ubuntu0.18.04.1
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- Host: 127.0.0.1
+-- Generation Time: Dec 24, 2018 at 01:14 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -105,16 +107,21 @@ CREATE TABLE `features` (
   `thumbnail` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `icon` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `features`
 --
 
-INSERT INTO `features` (`id`, `headline`, `description`, `thumbnail`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Raster to Vector', '<p>Raster to Vector is the Photo Conversion with Illustrator Line Art Where Using the Shape and Color provide Stranded Structure.<br><br>For Logo Redesign, Line Art for Shape of Anything, Product actual Size and Color is presented with Raster to Vector by Illustrator. A T-shirt has different Color, Shape, Size. If any place of Size is not actual than full T-shirt Design Layout will be Destroy Time and Cost. Accurate Line art is Essential for exact Layout and Only for that Raster to Vector is very Popular in Garments Industries and Ad Design Agencies.<br></p>', 'uploads/images/features/DyJwQAEWWRjCSz1N1rE6rNFipyfeMbj9NO6Jt8q9.png', 1, '2018-12-20 05:53:19', '2018-12-20 05:53:19'),
-(2, 'Jewelry Retouching', '<p>Jewelry Retouching Used a Jewelry product professional for Sell. Jewelry is a symbol of Status. Retouching make a Jewelry photo Lucrative.<br><br>Jewelry includes Diamond, Necklace, Ring, Earring, Bracelets. When take a photo with a Camera, the photo is not ready for presentable to the presenter or who is used to as Dust, Sharpness, Brightness and color Adjustment. With High End Photo Retouching process a Jewelry going to Final Output for the User Checking.<br></p>', 'uploads/images/features/6BZlV24dw5qK1UCD10ThDoHVKsmehrILzBJompmG.png', 1, '2018-12-20 05:54:22', '2018-12-20 05:54:22');
+INSERT INTO `features` (`id`, `headline`, `description`, `thumbnail`, `status`, `created_at`, `updated_at`, `icon`) VALUES
+(5, 'Photo Restoration', '<p>ccount of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no anno<br></p>', 'uploads/images/features/nW5cKhiUisPYN7hWKcprpGwMX2eyPriwydK4qPMT.png', 1, '2018-12-24 05:27:40', '2018-12-24 05:27:40', 'uploads/images/features/mS5CEECu7nr5jFfGxkYAt76OX8IyJcL0ErhdmXsG.png'),
+(6, 'Shadow Effect', '<p>ccount of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those w<b>ho do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor aga</b>in is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally</p><p> circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no anno<br></p>', 'uploads/images/features/TqSla2M3mvgjhmNAT7l1PLIXoKcupIqWtWgyyOmg.png', 1, '2018-12-24 05:28:19', '2018-12-24 05:28:19', 'uploads/images/features/MNOFNY2PWPLzFuII8GQob6ejl1Ut3bIneDyIIJrX.png'),
+(7, 'Clipping Path', '<p>r avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure ration<b><i>ally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find</i></b> fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<br><br>Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC<br>\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe evenie<br></p>', 'uploads/images/features/tm0O2OirvFPG4Mb888iMkmu10FfcqdYDRrvvbmzt.png', 1, '2018-12-24 05:30:19', '2018-12-24 05:30:19', 'uploads/images/features/jJA47xI2PrXHppNvoqEw6e91wKjeCDituBN5kd2x.png'),
+(8, 'Photoshop Masking', '<p>Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC<br>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem ap<i>eriam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam</i> quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"<br><br>1914 translation by H. Rackham<br>\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<br><br>Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC<br></p>', 'uploads/images/features/5GXyrh2pSOpnVbIV7J4oER2QxClPzEzDzOH0LRvW.png', 1, '2018-12-24 05:31:27', '2018-12-24 05:31:27', 'uploads/images/features/Rb68cZFrEG08UiNE70LM7ZVUJr6mpIzkAblcq5Bv.png'),
+(9, 'Mirroring Effect', '<p>Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC<br>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae conse<b>quatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"<br><br>1914 translation by H. Rackham<br>\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that</b> are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<br><br>Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC<br></p>', 'uploads/images/features/z8xzWg2Ri6KQ4XsvqmFeTAxk54fxtWmwuUnkyxeB.png', 1, '2018-12-24 05:32:18', '2018-12-24 05:32:18', 'uploads/images/features/tAuNi1gSzTvGMVzdRnPLuJsTSZpEj4NvBykLrMMy.png'),
+(10, 'Raster To Vector', '<p>&nbsp;ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"<br><br>1914 translation by H. Rackham<br>\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<br><br>Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC<br></p>', 'uploads/images/features/dpfwAx0PcbgFLOC31l6yXQqCiXd3zfpbdK7XUXvk.png', 0, '2018-12-24 05:35:47', '2018-12-24 05:42:23', 'uploads/images/features/ieW1qPrctpbw9UXy7ZusSns6IuroZHrEFymJP48O.png');
 
 -- --------------------------------------------------------
 
@@ -131,6 +138,13 @@ CREATE TABLE `menus` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `name`, `slug`, `serial`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Services', '#', 1, 1, '2018-12-23 23:36:03', '2018-12-24 01:24:08');
 
 -- --------------------------------------------------------
 
@@ -163,7 +177,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2018_12_17_065745_create_socials_table', 1),
 (13, '2018_12_17_121534_create_menus_table', 1),
 (14, '2018_12_19_184401_create_submenus_table', 1),
-(15, '2018_12_22_193527_create_pages_table', 1);
+(15, '2018_12_22_193527_create_pages_table', 1),
+(20, '2018_12_23_180409_create_orders_table', 2),
+(21, '2018_12_24_105639_add_icon_to_features_table', 3);
 
 -- --------------------------------------------------------
 
@@ -177,6 +193,34 @@ CREATE TABLE `newsletters` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `optional_service` text COLLATE utf8mb4_unicode_ci,
+  `image_quantity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `yearly_quantity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `return_file_format` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `additional_comment` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `first_name`, `last_name`, `email`, `service`, `optional_service`, `image_quantity`, `yearly_quantity`, `return_file_format`, `additional_comment`, `created_at`, `updated_at`) VALUES
+(1, 'Anik', 'Datta', 'aunik.t2@gmail.com', 'Clipping path, <br>Multi-clipping path, <br>Image masking, <br>Drop shadow, <br>Photo retouching, <br>Photo manipulation', 'Tello Mask', '3', '101-1,000', 'PSD–layer mask', 'Lorem Ipsum', '2018-12-24 03:57:19', '2018-12-24 03:57:19');
 
 -- --------------------------------------------------------
 
@@ -197,6 +241,14 @@ CREATE TABLE `pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `submenu_id`, `before_thumbnail`, `after_thumbnail`, `title`, `icon`, `description`, `feature_title`, `feature_text`, `created_at`, `updated_at`) VALUES
+(1, 1, 'uploads/images/pages/YWa0FNCgymDwbnmxfDaWZUzLAWNvEkO9UgnkJ2jU.png', 'uploads/images/pages/36nrHssHdsKw3YRKfgppUBAnWiORlU7WyijrwpQu.png', 'Cooler Clipping Path', 'uploads/images/pages/6kGgPldJ5V9JmUdKA3pxyZUmkhdLeoseWWrU2gna.png', '<p>Our Photoshop Clipping Path specialists professionally use Photoshop Pen Tool and In-design to ensure the highest level of quality output as per client’s requirement within the fast turnaround time. We handle whole tasks of image Clipping Path services by Photoshop for precise processing of each image you want us to edit. We have been in the Photo Editing industry for so long because of our care to each image clipping services and the expertise on processing, retouching and polishing images at utmost level with 100% proficiency. Brilliancy on all Clipping Path services named Regular Clipping Path, Multiple Clipping Path, Overlapping Clipping Path and perfect image cut out made us the best in the industry purposing to serve for Photo Studios, Publishers, Design Agencies, Brands, Chain Stores and Manufacturing Companies.<br></p>', 'Best Price', 'Where quality means everything to you price comes as next consideration. Clipping path family is one of the largest in the industry to offer you with both, Supper quality and Best price. We have set our prices as economical as possible by all means to ensure better price than in-house editing.', '2018-12-23 23:39:41', '2018-12-23 23:49:14'),
+(2, 3, 'uploads/images/pages/eWvfKt1Br3GPKPiuGNZl1OiMinOBeAkDqRPsE1Bt.png', 'uploads/images/pages/uvcJpFYEWDwb9CB3izg0QDD2IcMNw2xKFaRi1FWP.png', 'Photoshop Masking', 'uploads/images/pages/UDaAIJbPmex5BgEyKjoCrrKHzffu3YVDp14WVbm5.png', 'Existing photo retouch, photo enhancement and photo editing service to make an image shiner, better, focused and more précised is exactly a group of retouching tasks that our Image Retouching service Team responsible for. CPF provides 100% assurance to all photo retouching services just as ordered. Our Photo retouch and Image Restoration services are high above the industry standards and can assist your business to save huge time and money. No matter what type of companies you are running like Prepress Companies, Photo Studios or Stock Photography Company; we are here to provide you the perfect image retouching solutions by our experienced image retoucher team following exactly your specific requirements and within the shortest timeframe you fix for us.', 'Data Secured', 'We know you always want your Images to be in a safe hand. It is our duty to make sure that and we have arranged all the necessaries. We make sure only we both have the access to your images by providing you with fully encrypted web based application. The easiest, safest and the fasted process where you can share your files.', '2018-12-24 01:11:25', '2018-12-24 01:11:25');
 
 -- --------------------------------------------------------
 
@@ -340,6 +392,15 @@ CREATE TABLE `submenus` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `submenus`
+--
+
+INSERT INTO `submenus` (`id`, `menu_id`, `name`, `slug`, `serial`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Clipping Path', 'clipping-path', 1, 1, '2018-12-23 23:36:22', '2018-12-23 23:39:42'),
+(3, 1, 'Photoshop Masking', 'photoshop-masking', 2, 1, '2018-12-24 01:06:50', '2018-12-24 01:11:25'),
+(4, 1, 'Photo Restoration', 'photo-restoration', 3, 0, '2018-12-24 04:10:23', '2018-12-24 04:10:23');
+
 -- --------------------------------------------------------
 
 --
@@ -388,7 +449,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Anik Datta', 'aunik.t2@gmail.com', NULL, '$2y$10$L1Ll9X0OCSeX5RGR5IBBKumUXXiyhexIBFMwqOdcALIZSMNhCn0tW', 'kqZPnl7sEnlHzz1IedyFYRKXfmzlZNq21ciyjC9ZosW5e35W3ucb0BobXOpu', '2018-12-18 06:02:19', '2018-12-18 06:02:19');
+(1, 'Admin', 'admin@clippingpath.com', NULL, '$2y$10$VoYE31adugGTP1.3w8ABZOiGjmlYxDVcgvEeqizND3LnjbM6gIxFm', NULL, '2018-12-18 06:02:19', '2018-12-24 05:51:25');
 
 --
 -- Indexes for dumped tables
@@ -434,6 +495,12 @@ ALTER TABLE `migrations`
 -- Indexes for table `newsletters`
 --
 ALTER TABLE `newsletters`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -503,76 +570,97 @@ ALTER TABLE `users`
 --
 ALTER TABLE `blogs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `contact_configs`
 --
 ALTER TABLE `contact_configs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `newsletters`
 --
 ALTER TABLE `newsletters`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `portfolios`
 --
 ALTER TABLE `portfolios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `site_configurations`
 --
 ALTER TABLE `site_configurations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `socials`
 --
 ALTER TABLE `socials`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- Constraints for dumped tables
 --
@@ -588,6 +676,7 @@ ALTER TABLE `pages`
 --
 ALTER TABLE `submenus`
   ADD CONSTRAINT `submenus_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

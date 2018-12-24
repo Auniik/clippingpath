@@ -14,12 +14,21 @@
 
     <?php
     $message=Session::get('message');
+
     if ($message) {
-        echo '<div class="alert alert-success alert-dismissable">
+        echo '<div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
                   </div>';
         Session::put('message',null);
     }
+    $failed=Session::get('failed');
+    if ($failed) {
+        echo '<div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$failed.'
+                  </div>';
+        Session::put('failed',null);
+    }
+
     ?>
     <div class="row">
         <div class="col-md-12">

@@ -16,8 +16,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages=Page::with('submenu')->orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.page.pages', compact('pages'));
+//        $pages=Page::with('submenu')->orderBy('created_at', 'desc')->paginate(10);
+//        return view('backend.page.pages', compact('pages'));
     }
 
     /**s

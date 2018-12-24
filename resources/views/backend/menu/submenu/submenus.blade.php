@@ -1,14 +1,14 @@
 @extends('layouts.admin_layout')
-@section('title', 'Manage Navigation Submenus')
+@section('title', 'Manage Navigation Pages')
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-newspaper-o"></i> Manage Navigation Submenus</h1>
-            <p>Manage Navigation Submenu for website</p>
+            <h1><i class="fa fa-newspaper-o"></i> Manage Navigation Pages</h1>
+            <p>Manage Navigation Page for website</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('/menus')}}">Menus Management</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/menus')}}">Manage Service</a></li>
         </ul>
     </div>
 
@@ -29,10 +29,10 @@
         <div class="col-md-12">
             <div class="tile">
                 <div class="table table-responsive">
-                    <h3 class="tile-title">List of Navigation Submenus</h3>
+                    <h3 class="tile-title">List of Navigation Pages</h3>
                     <table class="table table-striped">
                         <div class="alert alert-warning" role="alert">
-                            <p>Note: Submenu will active after adding content  in submenu.</p>
+                            <p>Note: Submenu will active after adding content  in page.</p>
                         </div>
                         <thead>
 
@@ -40,7 +40,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Slug</th>
-                            <th>Manage Page</th>
+                            <th>Manage Contents</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>

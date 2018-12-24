@@ -1,14 +1,14 @@
 @extends('layouts.admin_layout')
-@section('title', 'Manage Navigation Submenus')
+@section('title', 'Manage Navigation Pages')
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-newspaper-o"></i> Manage Navigation Submenus</h1>
-            <p>Manage Navigation Submenu for website</p>
+            <h1><i class="fa fa-newspaper-o"></i> Manage Navigation Pages</h1>
+            <p>Manage Navigation page for website</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('/menus')}}">Menus Management</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/menus')}}">Manage Service</a></li>
         </ul>
     </div>
 
@@ -26,17 +26,17 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title col-lg-8 offset-lg-2">Add Submenu</h3><hr>
+                <h3 class="tile-title col-lg-8 offset-lg-2">Add Page</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
                     <form action="{{route('submenus.store')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label class="control-label">Menu</label>
+                            <label class="control-label">Service Name</label>
                             <input value="{{$menu->name}}"  class="form-control" disabled  >
                             <input type="hidden" name="menu_id" value="{{$menu->id}}"  class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Submenu Name</label>
+                            <label class="control-label">Page Name</label>
                             <input name="name" id="name" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
                             @if($errors->has('name'))
                                 <div class="invalid-feedback">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="tile-footer">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Submenu</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Page</button>
                         </div>
                     </form>
                 </div>
@@ -92,7 +92,7 @@
         <div class="col-md-12">
             <div class="tile">
                 <div class="table table-responsive">
-                    <h3 class="tile-title">List of Navigation Submenus</h3>
+                    <h3 class="tile-title">List of Navigation Pages</h3>
                     <table class="table table-striped">
 
                         <thead>

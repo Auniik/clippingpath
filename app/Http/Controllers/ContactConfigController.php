@@ -51,7 +51,7 @@ class ContactConfigController extends Controller
             ]);
             return redirect('contact/config')->withMessage('Contact Page information updated.');
         }
-        return redirect('contact/config')->withMessage('Google Maps link is not valid');
+        return redirect('contact/config')->withFailed('Google Maps link is not valid');
     }
 
     public function edit($contactRecord)
@@ -80,6 +80,6 @@ class ContactConfigController extends Controller
             ]);
             return redirect('contact/config')->withMessage('Contact Page information updated.');
         }
-        return redirect('contact/config')->withMessage('Google Maps link is not valid');
+        return redirect('contact/config')->withFailed('Google Maps link is not valid');
     }
 }

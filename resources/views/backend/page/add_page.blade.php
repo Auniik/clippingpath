@@ -3,12 +3,12 @@
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-briefcase"></i> Add Page</h1>
-            <p>Add page for navigation menu</p>
+            <h1><i class="fa fa-briefcase"></i> Add Contents</h1>
+            <p>Add content for navigation menu</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('submenus')}}">Manage Submenus</a></li>
+            <li class="breadcrumb-item"><a href="{{url('submenus')}}">Manage Pages</a></li>
         </ul>
     </div>
 
@@ -29,12 +29,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title col-lg-8 offset-lg-2">Add Page</h3><hr>
+                <h3 class="tile-title col-lg-8 offset-lg-2">Add Contents</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
                     <form action="{{url('pages')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label class="control-label">Submenu</label>
+                            <label class="control-label">Page Name</label>
                             <input value="{{$submenu->name}}"  class="form-control" disabled  >
                             <input type="hidden" name="submenu_id" value="{{$submenu->id}}"  class="form-control" >
                         </div>
@@ -48,7 +48,7 @@
                             <p class="text-warning"><i>If you want to compare two images on mouse hover then add before and after images.</i></p>
                         </div>
                         <div class="form-group">
-                                <label class="control-label">Before Image</label>
+                                <label class="control-label">Default Image</label>
                                 <input class="form-control @if($errors->has('before_thumbnail')) is-invalid @endif" name="before_thumbnail" type="file" >
                                 <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
                             @if($errors->has('before_thumbnail'))
@@ -57,9 +57,11 @@
                                 </div>
                             @endif
                         </div>
+                        <hr>
 
                         <div class="form-group">
-                            <label class="control-label">After Image <span class="text-warning">(Optional)</span></label>
+                            <label class="control-label">Moving Image <span class="text-warning">(Optional)</span></label>
+                            <small class="text-success">Its a  moving image over the default image.</small>
                             <input class="form-control @if($errors->has('after_thumbnail')) is-invalid @endif" name="after_thumbnail" type="file" >
                             <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
                             @if($errors->has('after_thumbnail'))
@@ -116,7 +118,7 @@
                         </div>
 
                         <div class="tile-footer">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Page</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save Changes</button>
                         </div>
                     </form>
                 </div>

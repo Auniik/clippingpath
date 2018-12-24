@@ -48,7 +48,7 @@ class OrderController extends Controller
             'service' => implode(', <br>', (array) $request->get('service'))
         ]);
         Order::create($request->all());
-        return redirect('order')->withMessage('We\'ll notify you soon.');
+        return redirect('order')->withMessage('Thank you. We\'ll notify you soon.');
     }
 
     /**

@@ -1,5 +1,5 @@
 @extends('layouts.front_layout')
-@section('title', 'Article')
+@section('title', 'Order')
 @section('content')
 
 <div class="main-body">

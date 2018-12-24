@@ -33,14 +33,14 @@
                     </div>
                 <hr>
                     <div class="form-group row">
-                        <label class="control-label col-md-3">Before Image:</label>
+                        <label class="control-label col-md-3">Default Image:</label>
                         <div class="col-md-8">
                             <img class="img-fluid" src="{{url($portfolio_item->before_thumbnail)}}" alt="">
                         </div>
                     </div>
                 <hr>
                     <div class="form-group row">
-                        <label class="control-label col-md-3">After Image:</label>
+                        <label class="control-label col-md-3">Moving Image:</label>
                         <div class="col-md-8">
                             <img class="img-fluid" src="{{url($portfolio_item->after_thumbnail)}}" alt="">
                         </div>

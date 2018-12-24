@@ -3,12 +3,12 @@
 @section('admin_content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-newspaper-o"></i> Edit Submenu</h1>
-            <p>Edit Navigation Submenus for website</p>
+            <h1><i class="fa fa-newspaper-o"></i> Edit Page</h1>
+            <p>Edit Navigation pages for website</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="{{url('/menus')}}">Menus</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/menus')}}">Manage Service</a></li>
         </ul>
     </div>
 
@@ -25,18 +25,18 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title col-lg-8 offset-lg-2">Edit Submenu</h3><hr>
+                <h3 class="tile-title col-lg-8 offset-lg-2">Edit Page</h3><hr>
                 <div class="tile-body col-lg-8 offset-lg-2">
                     <form action="{{route('submenus.update', $submenu)}}" method="post">
                         @method('patch')
                         @csrf
                         <div class="form-group">
-                            <label class="control-label">Menu</label>
+                            <label class="control-label">Service Name</label>
                             <input value="{{optional($submenu->menu)->name  }}" class="form-control" disabled  >
                             <input type="hidden" name="menu_id" value="{{$submenu->menu_id}}"  class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Submenu Name</label>
+                            <label class="control-label">Page Name</label>
                             <input name="name"  value="{{$submenu->name}}" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
                             @if($errors->has('name'))
                                 <div class="invalid-feedback">
@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Serial</label>
-                            <input name="serial" value="{{$submenu->serial}}" min="{{($submenu->serial)}}" class="form-control @if($errors->has('serial')) is-invalid @endif" type="number">
+                            <input name="serial" value="{{$submenu->serial}}" min="0" class="form-control @if($errors->has('serial')) is-invalid @endif" type="number">
                             @if($errors->has('serial'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('serial')}}
@@ -86,7 +86,7 @@
                         @endif
 
                         <div class="tile-footer">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Menu</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Page</button>
                         </div>
                     </form>
                 </div>

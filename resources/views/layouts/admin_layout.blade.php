@@ -75,12 +75,10 @@
             <a class="app-menu__item {{ $url  == 'settings' ? 'active' : '' }}" href="{{url('settings')}}" href="{{url('settings')}}"><i class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Site Configuration</span></a>
         </li>
         {{--Pages--}}
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bars"></i><span class="app-menu__label">Menus</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bars"></i><span class="app-menu__label">Services</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'menus' ? 'active' : '' }}" href="{{url('menus')}}"><i class="icon fa fa-circle-o"></i> Manage Menu</a></li>
-                <li><a class="treeview-item {{ $url  == 'submenus' ? 'active' : '' }}" href="{{url('submenus')}}"><i class="icon fa fa-circle-o"></i> Manage Submenu</a></li>
-                {{--<li><a class="treeview-item {{ $url  == 'pages/create' ? 'active' : '' }}" href="{{url('pages/create')}}"><i class="icon fa fa-circle-o"></i> Add Page</a></li>--}}
-                <li><a class="treeview-item {{ $url  == 'pages' ? 'active' : '' }}" href="{{url('pages')}}"><i class="icon fa fa-circle-o"></i> Manage Pages</a></li>
+                <li><a class="treeview-item {{ $url  == 'menus' ? 'active' : '' }}" href="{{url('menus')}}"><i class="icon fa fa-circle-o"></i> New Service</a></li>
+                <li><a class="treeview-item {{ $url  == 'submenus' ? 'active' : '' }}" href="{{url('submenus')}}"><i class="icon fa fa-circle-o"></i> Manage Service</a></li>
             </ul>
         </li>
         {{--BLOGS--}}
