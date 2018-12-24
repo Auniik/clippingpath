@@ -1,5 +1,5 @@
 @extends('layouts.front_layout')
-@section('title', 'Home | Clipping Path')
+@section('title', 'Home')   
 @section('content')
     <div class="main-body">
         <div class="main-wrapper slider-area">
@@ -63,9 +63,9 @@
                     </ul>
                     <div class="contact-area">
                         <span class="lan">
-                        <a href="callto:+1(484) 273-2547" class="lan"><i class="mobile-number"></i>+1(484) 273-2547</a>
+                        <a href="callto:{{$config->website_phone}}" class="lan"><i class="mobile-number">{{$config->website_phone}}</i></a>
                         </span> &nbsp;&nbsp;&nbsp;
-                        <a href="mailto:info@clippingpath.com" class="email"><i class="icon-envelope-alt"></i> info@clippingpath.com</a>
+                        <a href="mailto:{{$config->website_email}}" class="email"><i class="icon-envelope-alt"></i> {{$config->website_email}}</a>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="col-md-12 c-p-feature">
                     <div class="row">
                         @foreach ($features as $feature)
-                            <div class="col-lg-4 col-md-6 col-sm-6 item-style" style="background-image:url({{$feature->thumbnail}})">
+                            <div class="col-lg-4 col-md-6 col-sm-6 item-style" style="background-image:url({{$feature->icon}})">
                                 <a href="{{route('feature.show', $feature)}}"><h2>{{$feature->headline}}</h2></a>
                                 <p>{!! str_limit($feature->description, 100)!!}</p>
                             </div>

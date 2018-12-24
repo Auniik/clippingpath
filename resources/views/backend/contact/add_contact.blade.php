@@ -96,6 +96,7 @@
                         <hr>
                         <label class="control-label">Google Maps Embaded Link</label>
                         <textarea name="google_maps" rows="4" class="form-control @if($errors->has('google_maps')) is-invalid @endif" placeholder="Enter address details">{{old('google_maps')}}</textarea>
+                        <p class=""text-primary>Tip: Select your location then copy embed map link and paste it here.</p>
                         @if($errors->has('google_maps'))
                             <div class="invalid-feedback">
                                 {{$errors->first('google_maps')}}

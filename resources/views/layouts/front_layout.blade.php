@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/animate.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{$config==null ? 'frontend/images/favicon.ico' : '../'.$config->favicon}}" sizes="32x32" />
     <link rel="icon" href="{{$config==null ? 'frontend/images/favicon.ico' : $config->favicon}}" sizes="32x32" />
 </head>
 

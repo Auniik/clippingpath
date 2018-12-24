@@ -45,10 +45,12 @@ class FeatureController extends Controller
             'headline' => 'required',
             'description' => 'required',
             'thumbnail' => 'required|mimes:jpeg,bmp,jpg,png',
+            'icon' => 'required|mimes:png',
         ]);
         Feature::create([
             'headline' => $request->headline,
             'thumbnail' => $request->thumbnail->store('uploads/images/features'),
+            'icon' => $request->icon->store('uploads/images/features'),
             'description' => $request->description,
             'status' => $request->status,
         ]);
@@ -90,16 +92,20 @@ class FeatureController extends Controller
             'headline' => 'required|max:255',
             'description' => 'required',
             'thumbnail' => 'mimes:jpeg,bmp,jpg,png',
+            'icon' => 'mimes:png',
         ]);
         $feature->update([
             'headline' => $request->headline,
             'description' => $request->description,
             'status' => $request->status,
         ]);
-        $isExist=$request->file('thumbnail');
-        if ($isExist) {
+
+        if ($request->hasFile('thumbnail')) {
             $request->thumbnail->storeAs('/', $feature->thumbnail);
         }
+        if ($request->hasFile('icon')) {
+        $request->icon->storeAs('/', $feature->icon);
+    }
         return redirect('features')->withMessage('Feature  information updated.');
     }
 

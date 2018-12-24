@@ -59,7 +59,7 @@
                                 @endif
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-sm btn-warning" href="{{route('sliders.show', $item)}}"><i class="fa fa-eye fa-fw"></i></a>
+                                        {{--<a class="btn btn-sm btn-warning" href="{{route('sliders.show', $item)}}"><i class="fa fa-eye fa-fw"></i></a>--}}
                                         <a class="btn btn-sm btn-primary" href="{{route('sliders.edit', $item)}}"><i class="fa fa-edit fa-fw"></i></a>
                                         <a class="btn btn-sm delete-data btn-danger" href="{{route('sliders.destroy', $item)}}"><i class="fa fa-trash-o fa-fw"></i></a>
                                     </div>

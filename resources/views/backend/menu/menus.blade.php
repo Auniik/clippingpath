@@ -35,7 +35,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Slug</th>
+                            {{--<th>Slug</th>--}}
                             <th>Serial</th>
                             <th>Status</th>
                             <th>Submenu</th>
@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{$sl++}}</td>
                                 <td>{{$menu->name}}</td>
-                                <td><a href="{{url('/')}}/{{$menu->slug}}">{{url('/')}}/{{$menu->slug}}</a></td>
+                                {{--<td><a href="{{url('/')}}/{{$menu->slug}}">{{url('/')}}/{{$menu->slug}}</a></td>--}}
                                 <td>{{$menu->serial}}</td>
                                 @if($menu->status==1)
                                     <td>
@@ -87,28 +87,21 @@
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Menu Name</label>
-                            <input name="name" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Raster To Vector">
+                            <input name="name" class="form-control @if($errors->has('name')) is-invalid @endif" type="text" placeholder="example: Services">
                             @if($errors->has('name'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('name')}}
                                 </div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Slug</label>
                             <div class="form-group">
-                                <label class="sr-only" for="exampleInputAmount">Enter  a unique slug</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><?php echo url('/') ?>/</span></div>
-                                    <input name="slug"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="text" value="#">
+                                <input name="slug"  class="form-control @if($errors->has('slug')) is-invalid @endif" id="exampleInputAmount" type="hidden" value="#">
                                     @if($errors->has('slug'))
                                         <div class="invalid-feedback">
                                             {{$errors->first('slug')}}
                                         </div>
                                     @endif
-                                </div>
                             </div>
-                        </div>
                         <div class="form-group">
                             <label class="control-label">Serial</label>
                             <input name="serial" value="{{$data==null ? '1' : $data->serial+1}}" min="0" class="form-control @if($errors->has('serial')) is-invalid @endif" type="number">

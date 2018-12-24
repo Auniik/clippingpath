@@ -51,6 +51,7 @@
                             <label class="control-label">Before Image</label>
                             <input class="form-control @if($errors->has('before_thumbnail')) is-invalid @endif" name="before_thumbnail" type="file" >
                             <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
+                            <img class="img-fluid img-thumbnail" src="{{url($portfolio_item->before_thumbnail)}}" alt="">
                             @if($errors->has('before_thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('before_thumbnail')}}
@@ -62,6 +63,7 @@
                             <label class="control-label">After Image</label>
                             <input class="form-control @if($errors->has('after_thumbnail')) is-invalid @endif" name="after_thumbnail" type="file" >
                             <p class="text-primary">Note: Size of Image must be 1360px *  500px.</p>
+                            <img class="img-fluid img-thumbnail" src="{{url($portfolio_item->after_thumbnail)}}" alt="">
                             @if($errors->has('after_thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('after_thumbnail')}}

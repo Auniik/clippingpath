@@ -64,7 +64,7 @@ class PageController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'feature_title' => $request->feature_title,
-            'feature_text' => $request->description,
+            'feature_text' => $request->feature_text,
         ];
 
         if ($request->hasFile('before_thumbnail')) {
@@ -135,7 +135,7 @@ class PageController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'feature_title' => $request->feature_title,
-            'feature_text' => $request->description,
+            'feature_text' => $request->feature_text,
         ];
         if ($request->hasFile('before_thumbnail')) {
             if (!is_null($page->before_thumbnail)){

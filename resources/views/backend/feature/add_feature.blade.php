@@ -51,10 +51,21 @@
                         <div class="form-group">
                             <label class="control-label">Feature Image</label>
                             <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
-                            <p class="text-primary">Note: Aspect Ratio of Image must be 1:1 (example: 150px  * 150px)</p>
+                            <p class="text-primary">Note: For better image view upload images width of 640px.</p>
                             @if($errors->has('thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('thumbnail')}}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Icon</label>
+                            <input class="form-control @if($errors->has('icon')) is-invalid @endif" name="icon" type="file" >
+                            <p class="text-primary">Note: Aspect Ratio of Icon must be 1:1. For better view upload .png files.</p>
+                            @if($errors->has('icon'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('icon')}}
                                 </div>
                             @endif
                         </div>

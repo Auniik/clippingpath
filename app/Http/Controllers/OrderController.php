@@ -14,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::orderBy('created_at', 'desc')->paginate(5);
+        return view('backend.dashboard', compact('orders'));
     }
 
     /**
@@ -24,7 +25,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.order.order');
     }
 
     /**
@@ -35,7 +36,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'service' => 'required',
+            'yearly_quantity' => 'required',
+            'return_file_format' => 'required',
+        ]);
+        $request->merge([
+            'service' => implode(', <br>', (array) $request->get('service'))
+        ]);
+        Order::create($request->all());
+        return redirect('order')->withMessage('We\'ll notify you soon.');
     }
 
     /**
@@ -46,7 +59,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+//        dd($order);
+        return view('backend.order.order', compact('order'));
     }
 
     /**
@@ -80,6 +94,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return redirect('dashboard')->withMessage('Order deleted');
     }
 }

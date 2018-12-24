@@ -28,7 +28,9 @@
                 <div class="table table-responsive">
                 <h3 class="tile-title">Features</h3>
                 <table class="table table-striped">
-
+                    <div class="alert alert-warning" role="alert">
+                        <p>Note: Only 6 Features will show on homepage.</p>
+                    </div>
                     <thead>
                     <tr>
                         <th>#</th>

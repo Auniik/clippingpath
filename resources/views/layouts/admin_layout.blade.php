@@ -26,7 +26,7 @@
 </head>
 <body class="app sidebar-mini rtl">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="{{url('/dashboard')}}">ClipingPath</a>
+<header class="app-header"><a class="app-header__logo" href="{{url('/dashboard')}}">ClippingPath</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -39,8 +39,7 @@
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="{{url('/settings')}}"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"
@@ -56,10 +55,9 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset('frontend/images/favicon.ico')}}" alt="User Image">
         <div>
             <p class="app-sidebar__user-name">{{ Auth::user()->name }}</p>
-            <p class="app-sidebar__user-designation">Dot Crew</p>
         </div>
     </div>
     <ul class="app-menu">
@@ -107,7 +105,6 @@
                 <li><a class="treeview-item {{ $url  == 'portfolio-items' ? 'active' : '' }}" href="{{url('portfolio-items')}}"><i class="icon fa fa-circle-o"></i> Manage Portfolio</a></li>
             </ul>
         </li>
-
         {{--Testimonials--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-thumbs-o-up"></i><span class="app-menu__label">Testimonials</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
@@ -115,7 +112,6 @@
                 <li><a class="treeview-item {{ $url  == 'feedbacks' ? 'active' : '' }}" href="{{url('feedbacks')}}"><i class="icon fa fa-circle-o"></i> Manage Testimonials</a></li>
             </ul>
         </li>
-
         {{--Slider--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-picture-o"></i><span class="app-menu__label">Slider</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
@@ -123,18 +119,18 @@
                 <li><a class="treeview-item {{ $url  == 'sliders' ? 'active' : '' }}" href="{{url('sliders')}}"><i class="icon fa fa-circle-o"></i> Manage Sliders</a></li>
             </ul>
         </li>
-
-        {{--SOCIAL MANAGEMENT--}}
-        <li>
-            <a class="app-menu__item" href="{{url('socials')}}"><i class="app-menu__icon fa fa-connectdevelop"></i><span class="app-menu__label">Social Management</span></a>
-        </li>
         {{--CONTACT PAGE--}}
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-envelope
 "></i><span class="app-menu__label">Contacts</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item {{ $url  == 'contact/config' ? 'active' : '' }}" href="{{url('contact/config')}}"><i class="icon fa fa-circle-o"></i> Contact Config</a></li>
+                <li><a class="treeview-item {{ $url  == 'contact/config' ? 'active' : '' }}" href="{{url('contact/config')}}"><i class="icon fa fa-circle-o"></i> Location Configuration</a></li>
                 <li><a class="treeview-item {{ $url  == 'messages' ? 'active' : '' }}" href="{{url('messages')}}"><i class="icon fa fa-circle-o"></i> Messages</a></li>
             </ul>
+        </li>
+
+        {{--SOCIAL MANAGEMENT--}}
+        <li>
+            <a class="app-menu__item" href="{{url('socials')}}"><i class="app-menu__icon fa fa-connectdevelop"></i><span class="app-menu__label">Social Management</span></a>
         </li>
 
         {{--//Newsletter--}}

@@ -68,20 +68,23 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="animated-radio-button">
-                            <label>Publication Status</label>
-                            <div >
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="1" {{$submenu->status==1 ? 'checked' : ''}}><span class="label-text">Active</span>
-                                </label>
-                            </div>
+                        @if(!is_null($page))
+                            <div class="animated-radio-button">
+                                <label>Publication Status</label>
+                                <div >
+                                    <label class="form-check-label">
+                                        <input type="radio" name="status" class="form-check-input" value="1" {{$submenu->status==1 ? 'checked' : ''}}><span class="label-text">Active</span>
+                                    </label>
+                                </div>
 
-                            <div>
-                                <label class="form-check-label">
-                                    <input type="radio" name="status" class="form-check-input" value="0" {{$submenu->status==0 ? 'checked' : ''}}><span class="label-text">Inactive</span>
-                                </label>
+                                <div>
+                                    <label class="form-check-label">
+                                        <input type="radio" name="status" class="form-check-input" value="0" {{$submenu->status==0 ? 'checked' : ''}}><span class="label-text">Inactive</span>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                        @endif
+
                         <div class="tile-footer">
                             <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Menu</button>
                         </div>

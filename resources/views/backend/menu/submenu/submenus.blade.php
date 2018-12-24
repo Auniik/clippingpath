@@ -31,13 +31,16 @@
                 <div class="table table-responsive">
                     <h3 class="tile-title">List of Navigation Submenus</h3>
                     <table class="table table-striped">
-
+                        <div class="alert alert-warning" role="alert">
+                            <p>Note: Submenu will active after adding content  in submenu.</p>
+                        </div>
                         <thead>
+
                         <tr>
                             <th>#</th>
                             <th>Name</th>
                             <th>Slug</th>
-                            <th>Add Page</th>
+                            <th>Manage Page</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -54,7 +57,7 @@
                                 <td>
                                     <a href="{{url('/')}}/{{$menu_name}}/{{$submenu->slug}}">{{url('/')}}/{{$menu_name}}/{{$submenu->slug}}</a>
                                 </td>
-                                <td><a class="btn btn-sm  btn-default" href="{{route('pages.add', $submenu)}}">Add Page</a></td>
+                                <td><a class="btn btn-sm  btn-secondary" href="{{route('pages.add', $submenu)}}">Add Content</a></td>
                                 @if($submenu->status==1)
                                     <td>
                                         <span class="badge badge-success">Active</span>

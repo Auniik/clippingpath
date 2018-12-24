@@ -82,7 +82,8 @@
                         <div class="form-group">
                             <label class="control-label">Service Icon</label>
                             <input class="form-control @if($errors->has('icon')) is-invalid @endif" name="icon" type="file" >
-                            <p class="text-primary">Note: Size of Image must be under 100px *  100px. Try to use a specific .PNG icon here which can describe content of this page.</p><img class="img-fluid img-thumbnail" src="{{url(($pageRecord->icon)==null ? '' : $pageRecord->icon)}}" alt="">
+                            <p class="text-primary">Note: Size of Image must be under 100px *  100px. Try to use a specific .PNG icon here which can describe content of this page.</p>
+                            <img class="img-fluid img-thumbnail" src="{{url(($pageRecord->icon)==null ? '' : $pageRecord->icon)}}" alt="">
 
                             @if($errors->has('icon'))
                                 <div class="invalid-feedback">

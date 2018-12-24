@@ -1,15 +1,13 @@
 <?php
 
-Route::get('/order', function () {
-    return view('frontend.order.order');
-});
+//Route::get('/order', function () {
+//    return view('frontend.order.order');
+//});
 
 
 
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('dashboard', function() {
-        return view('backend.dashboard');
-    });
+    Route::get('dashboard', 'OrderController@index');
 
 
     //Site Configurations
@@ -41,6 +39,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::DELETE('submenus/{submenu}', 'SubmenuController@destroy')->name('submenus.destroy');
     //Blog Management
     Route::resource('blogs', 'BlogController');
+    Route::resource('orders', 'OrderController');
 
     Route::resource('pages', 'PageController');
     Route::get('pages/{submenu_id}/add', 'PageController@add')->name('pages.add');
@@ -72,6 +71,7 @@ Route::get('/', 'MainPageController@index');
 Route::get('contact', 'ContactController@create');
 Route::post('contact', 'ContactController@store')->name('message.send');
 Route::post('newsletters/send', 'NewsletterController@store');
+Route::get('order', 'OrderController@create');
 //blog
 Route::get('blog', 'BlogController@allBlog');
 Route::get('features/{feature}', 'FeatureController@feature')->name('feature.show');

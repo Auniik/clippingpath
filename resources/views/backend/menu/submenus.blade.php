@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="tile-footer">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Menu</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Submenu</button>
                         </div>
                     </form>
                 </div>
@@ -101,6 +101,7 @@
                             <th>Name</th>
                             <th>Slug</th>
                             <th>Serial</th>
+                            <th>Manage Page</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -113,6 +114,7 @@
                                 <td>{{$submenu->name}}</td>
                                 <td><a href="{{url('/')}}/{{$submenu->slug}}">{{url('/')}}/{{$submenu->slug}}</a></td>
                                 <td>{{$submenu->serial}}</td>
+                                <td><a class="btn btn-sm  btn-secondary" href="{{route('pages.add', $submenu)}}">Add Content</a></td>
                                 @if($submenu->status==1)
                                     <td>
                                         <span class="badge badge-success">Active</span>

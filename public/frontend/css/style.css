@@ -995,11 +995,11 @@ h1.content-title {
 	  -o-transition: background .3s;
 	  transition: background .3s;
 	  margin-bottom: 45px;
-	  -webkit-background-size: 45%;
-	  -moz-background-size: 45%;
-	  -ms-background-size: 45%;
-	  -o-background-size: 45%;
-	  background-size: 35% cover;
+	  -webkit-background-size: 35%;
+	  -moz-background-size: 35%;
+	  -ms-background-size: 35%;
+	  -o-background-size: 35%;
+	  background-size: 35%;
   }
   
   .item-style h3,.item-style h2 {
@@ -1024,6 +1024,7 @@ h1.content-title {
 	  padding: 0px 7px 0px;
 	  margin-bottom: 32px;
 	  font-size: 14px;
+	  max-height: 40px;
   }
   
   .item-style:last-child p {

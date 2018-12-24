@@ -1,5 +1,5 @@
 @extends('layouts.front_layout')
-@section('title', 'Contact | Clipping Path')
+@section('title', 'Contact')
 @section('content')
 
     <div class="main-body">
@@ -74,10 +74,10 @@
                                     </ul>
                                     <ul class="contact-list">
                                         <li class="mobile-number">
-                                            <p><a href="callto:">+1(484) 273-2547</a></p>
+                                            <p><a href="callto:{{$config->website_phone}}">{{$config->website_phone}}</a></p>
                                         </li>
                                         <li class="email-address">
-                                            <a href="mailto:"></a>
+                                            <a href="mailto:{{$config->website_email}}">{{$config->website_email}}</a>
                                         </li>
                                     </ul>
                                     <div class="map">

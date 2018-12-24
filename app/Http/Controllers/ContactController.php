@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\ContactConfig;
+use App\SiteConfiguration;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -27,8 +28,9 @@ class ContactController extends Controller
      */
     public function create()
     {
+        $config= SiteConfiguration::first();
         $contactInfo = ContactConfig::first();
-        return view('frontend.contact.contact', compact('contactInfo'));
+        return view('frontend.contact.contact', compact('contactInfo', 'config'));
     }
 
     /**

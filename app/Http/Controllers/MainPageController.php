@@ -29,9 +29,9 @@ class MainPageController extends Controller
     public function show($menu, $slug){
 
         $submenu= Submenu::where('slug', $slug)->first();
-        $menu = str_replace(' ', '-', strtolower('menu'.$submenu->menu->name));
+        $menu = str_replace(' ', '-', strtolower($submenu->menu->name));
         $page = Page::where('submenu_id', $submenu->id)->first();
-        if ($page==null)
-        return view('frontend.page.page', compact('page', 'menu'));
+        $services = Page::inRandomOrder()->take(4)->get();
+        return view('frontend.page.page', compact('page', 'menu', 'services'));
     }
 }

@@ -35,6 +35,7 @@
                             <label class="control-label">Client Image</label>
                             <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
                             <p class="text-primary">Note: Ratio of Image must be 1:1, example: 200px * 200px.</p>
+                            <img class="img-fluid img-thumbnail" src="{{url($feedback->thumbnail)}}" alt="">
                             @if($errors->has('client_thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('thumbnail')}}

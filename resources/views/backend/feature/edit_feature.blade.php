@@ -43,9 +43,22 @@
                             <label class="control-label">Feature Image</label>
                             <input class="form-control @if($errors->has('thumbnail')) is-invalid @endif" name="thumbnail" type="file" >
                             <p class="text-primary">Note: Aspect Ratio of Image must be 1:1 (example: 150px  * 150px)</p>
+                            <img class="img-fluid img-thumbnail" src="{{url($feature->thumbnail)}}" alt="">
                             @if($errors->has('thumbnail'))
                                 <div class="invalid-feedback">
                                     {{$errors->first('thumbnail')}}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Icon</label>
+                            <input class="form-control @if($errors->has('icon')) is-invalid @endif" name="icon" type="file" >
+                            <p class="text-primary">Note: Aspect Ratio of Icon must be 1:1. For better view upload .png files.</p>
+                            <img class="img-fluid img-thumbnail" src="{{url($feature->icon)}}" alt="">
+                            @if($errors->has('icon'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('icon')}}
                                 </div>
                             @endif
                         </div>

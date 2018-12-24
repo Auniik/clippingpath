@@ -22,6 +22,9 @@
     }
 
     ?>
+    <?php
+    $menu_name=str_replace(' ', '-', strtolower($submenu->menu->name));
+    ?>
 
     <div class="row">
         <div class="col-md-12">
@@ -37,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Slug</label>
-                            <input value="<?php echo url('/') ?>/{{$submenu->slug}}"  class="form-control" disabled  >
+                            <input value="<?php echo url('/').'/'.$menu_name  ?>/{{$submenu->slug}}"  class="form-control" disabled  >
 
                         </div>
                         <div class="form-group">

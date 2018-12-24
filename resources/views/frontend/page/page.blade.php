@@ -1,4 +1,7 @@
 @extends('layouts.front_layout')
+@section('title')
+    {{$page->title}}
+@endsection
 @section('content')
     <div class="main-body">
         <div class="main-wrapper slider-area">
@@ -21,7 +24,14 @@
                         <div class="col-md-2 thumb">
                             <img class="man-cut right" src="{{url($page->icon)}}" alt="man-cutting">
                         </div>
+
                         <div class="clear"></div>
+                        <div class="span12">
+                            <div class="trial-button-area">
+                                <a href="{{url('/order')}}" class="trial-button">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
                     </div>
 
                     <div class="service-feature-area">
@@ -39,38 +49,20 @@
                         <span class="right-shadow"></span>
                     </div>
                     <div class="service-galance">
-                        <a href="clipping-path.html">
-                            <div class="item-box col-md-3">
-                                <div class="img clipping">
-                                    <img alt="service-galance-clipping" src="assets/images/clipping.png">
+                        @foreach($services as $service)
+                            <?php
+                            $menu_name = str_replace(' ', '-', strtolower($service->submenu->menu->name));
+                            ?>
+                            <a href="{{url($menu_name.'/'.$service->submenu->slug)}}">
+                                <div class="item-box col-md-3">
+                                    <div class="img clipping">
+                                        <img alt="service-galance-clipping" src="{{url($service->icon)}}">
+                                    </div>
+                                    <p class="content-title">{{$service->title}}</p>
                                 </div>
-                                <p class="content-title">Clipping Path</p>
-                            </div>
-                        </a>
-                        <a href="photo-retouch.html">
-                            <div class="item-box col-md-3">
-                                <div class="img retouching">
-                                    <img alt="service-galance-retouching" src="assets/images/retouching.png">
-                                </div>
-                                <p class="content-title">Image Retouch</p>
-                            </div>
-                        </a>
-                        <a href="photoshop-masking.html">
-                            <div class="item-box col-md-3">
-                                <div class="img masking">
-                                    <img src="assets/images/masking.png" alt="service-galance-masking">
-                                </div>
-                                <p class="content-title">Masking</p>
-                            </div>
-                        </a>
-                        <a href="shadow-creation.html">
-                            <div class="item-box col-md-3">
-                                <div class="img shadow-creation">
-                                    <img src="assets/images/shadow-creation.png" alt="service-galance-shadow-creation">
-                                </div>
-                                <p class="content-title">Shadow Creation</p>
-                            </div>
-                        </a>
+                            </a>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

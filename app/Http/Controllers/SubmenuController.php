@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use App\Submenu;
 use App\Menu;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class SubmenuController extends Controller
         $input=$request->all();
 //        dd($input);
         Submenu::create($input);
-        return redirect('menus')->withMessage('Submenu created successfully');
+        return redirect('submenus')->withMessage('Submenu created successfully. Submenu will active after adding content in submenu.');
     }
 
     /**
@@ -76,7 +77,8 @@ class SubmenuController extends Controller
     {
         //Get Submenu for view
         $submenu = Submenu::find($id);
-        return view('backend.menu.edit_submenu', compact('submenu'));
+        $page = Page::where('submenu_id', $submenu->id)->first();
+        return view('backend.menu.edit_submenu', compact('submenu', 'page'));
     }
 
     /**
